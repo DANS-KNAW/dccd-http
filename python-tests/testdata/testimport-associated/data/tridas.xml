@@ -1,0 +1,2423 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tridas:tridas xmlns:tridas="http://www.tridas.org/1.2.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml">
+    <tridas:project>
+        <tridas:title>Velsen I</tridas:title>
+        <tridas:identifier domain="stichtingring.nl">P:1993041</tridas:identifier>
+        <tridas:createdTimestamp>2010-06-30T11:11:41Z</tridas:createdTimestamp>
+        <tridas:lastModifiedTimestamp>2010-06-30T11:11:41Z</tridas:lastModifiedTimestamp>
+        <tridas:type lang="en" normal="dating" normalId="1522" normalStd="DCCD">datering</tridas:type>
+        <tridas:laboratory>
+            <tridas:identifier domain="www.cultureelerfgoed.nl">1</tridas:identifier>
+            <tridas:name acronym="NLROB">Rijkdsdienst voor het Oudheidkundig Bodemonderzoek</tridas:name>
+            <tridas:address>
+                <tridas:cityOrTown>Amersfoort</tridas:cityOrTown>
+                <tridas:country>Nederland</tridas:country>
+            </tridas:address>
+        </tridas:laboratory>
+        <tridas:category lang="en" normal="archaeology" normalId="1552" normalStd="DCCD">archeologie</tridas:category>
+        <tridas:investigator>E. Jansma</tridas:investigator>
+        <tridas:period>1993</tridas:period>
+        <tridas:commissioner>IPP</tridas:commissioner>
+        <tridas:reference>Jansma, E., 1995: RemembeRINGs, NAR 19, Amsterdam</tridas:reference>
+        <tridas:genericField type="xs:string" name="Country">NL</tridas:genericField>
+        <tridas:genericField type="xs:string" name="CommisionerContactInfo">A. Bosman</tridas:genericField>
+        <tridas:object>
+            <tridas:title>Romeinse legerplaats velsen I</tridas:title>
+            <tridas:identifier domain="stichtingring.nl">O:1993041:VEL</tridas:identifier>
+            <tridas:createdTimestamp>2010-06-30T12:35:13Z</tridas:createdTimestamp>
+            <tridas:lastModifiedTimestamp>2010-06-30T12:35:13Z</tridas:lastModifiedTimestamp>
+            <tridas:comments>SubType is Castellum. In het rapport staat de projecttitel: Velzen</tridas:comments>
+            <tridas:type lang="en" normal="Military camp" normalId="367" normalStd="DCCD">Legerplaats</tridas:type>
+            <tridas:description>Romeinse versterking Velsen</tridas:description>
+            <tridas:file xlink:href="1993041vel.pdf"/>
+            <tridas:location>
+                <tridas:locationGeometry>
+                    <gml:Point srsName="WGS 84">
+                        <gml:pos>4.60759 52.4492</gml:pos>
+                    </gml:Point>
+                </tridas:locationGeometry>
+                <tridas:address>
+                    <tridas:addressLine1> </tridas:addressLine1>
+                    <tridas:cityOrTown>Velsen</tridas:cityOrTown>
+                </tridas:address>
+            </tridas:location>
+            <tridas:element>
+                <tridas:title>Onbekend</tridas:title>
+                <tridas:identifier domain="stichtingring.nl">E:1993041:VEL:0001</tridas:identifier>
+                <tridas:createdTimestamp>2010-06-30T14:33:57Z</tridas:createdTimestamp>
+                <tridas:lastModifiedTimestamp>2010-06-30T14:33:57Z</tridas:lastModifiedTimestamp>
+                <tridas:type lang="en" normal="Unknown" normalId="417" normalStd="DCCD">Onbekend</tridas:type>
+                <tridas:description>Sp 170; Vnr 390</tridas:description>
+                <tridas:taxon lang="la" normal="Quercus" normalId="1319" normalStd="DCCD_Taxon">Quercus</tridas:taxon>
+                <tridas:sample>
+                    <tridas:title>0001</tridas:title>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0001</tridas:identifier>
+                    <tridas:createdTimestamp>2010-05-18T18:37:07Z</tridas:createdTimestamp>
+                    <tridas:lastModifiedTimestamp>2010-05-18T18:37:07Z</tridas:lastModifiedTimestamp>
+                    <tridas:type lang="en" normal="various" normalId="1579" normalStd="DCCD">Various</tridas:type>
+                    <tridas:samplingDate certainty="approximately">1987-06-01</tridas:samplingDate>
+                    <tridas:radius>
+                        <tridas:title>4223</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0001:1</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>43</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>6</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="present"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3841">
+                            <tridas:title>VEL00011</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0001:1</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>43</tridas:ringCount>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete"/>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>6</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+</tridas:sapwood>
+<tridas:bark presence="present"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Pauline van Rijn</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation/>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00011.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="203"/>
+<tridas:value value="234"/>
+<tridas:value value="146"/>
+<tridas:value value="235"/>
+<tridas:value value="220"/>
+<tridas:value value="85"/>
+<tridas:value value="159"/>
+<tridas:value value="193"/>
+<tridas:value value="194"/>
+<tridas:value value="284"/>
+<tridas:value value="200"/>
+<tridas:value value="218"/>
+<tridas:value value="225"/>
+<tridas:value value="247"/>
+<tridas:value value="224"/>
+<tridas:value value="283"/>
+<tridas:value value="308"/>
+<tridas:value value="201"/>
+<tridas:value value="203"/>
+<tridas:value value="234"/>
+<tridas:value value="192"/>
+<tridas:value value="214"/>
+<tridas:value value="246"/>
+<tridas:value value="276"/>
+<tridas:value value="247"/>
+<tridas:value value="249"/>
+<tridas:value value="182"/>
+<tridas:value value="335"/>
+<tridas:value value="323"/>
+<tridas:value value="437"/>
+<tridas:value value="293"/>
+<tridas:value value="175"/>
+<tridas:value value="309"/>
+<tridas:value value="276"/>
+<tridas:value value="285"/>
+<tridas:value value="312"/>
+<tridas:value value="258"/>
+<tridas:value value="344"/>
+<tridas:value value="274"/>
+<tridas:value value="265"/>
+<tridas:value value="298"/>
+<tridas:value value="351"/>
+<tridas:value value="399"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4224</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0001:2</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>45</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>6</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="present"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3842">
+                            <tridas:title>VEL00012</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0001:2</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>45</tridas:ringCount>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete"/>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>6</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+</tridas:sapwood>
+<tridas:bark presence="present"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Pauline van Rijn</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation/>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00012.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="156"/>
+<tridas:value value="186"/>
+<tridas:value value="212"/>
+<tridas:value value="234"/>
+<tridas:value value="174"/>
+<tridas:value value="188"/>
+<tridas:value value="151"/>
+<tridas:value value="124"/>
+<tridas:value value="146"/>
+<tridas:value value="97"/>
+<tridas:value value="114"/>
+<tridas:value value="145"/>
+<tridas:value value="154"/>
+<tridas:value value="210"/>
+<tridas:value value="214"/>
+<tridas:value value="207"/>
+<tridas:value value="170"/>
+<tridas:value value="181"/>
+<tridas:value value="200"/>
+<tridas:value value="212"/>
+<tridas:value value="214"/>
+<tridas:value value="236"/>
+<tridas:value value="217"/>
+<tridas:value value="252"/>
+<tridas:value value="304"/>
+<tridas:value value="362"/>
+<tridas:value value="350"/>
+<tridas:value value="435"/>
+<tridas:value value="265"/>
+<tridas:value value="398"/>
+<tridas:value value="466"/>
+<tridas:value value="254"/>
+<tridas:value value="235"/>
+<tridas:value value="173"/>
+<tridas:value value="296"/>
+<tridas:value value="336"/>
+<tridas:value value="458"/>
+<tridas:value value="370"/>
+<tridas:value value="340"/>
+<tridas:value value="461"/>
+<tridas:value value="368"/>
+<tridas:value value="455"/>
+<tridas:value value="471"/>
+<tridas:value value="369"/>
+<tridas:value value="480"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4225</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0001:04496</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>45</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>6</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="present"/>
+                        </tridas:woodCompleteness>
+                    </tridas:radius>
+                </tridas:sample>
+            </tridas:element>
+            <tridas:element>
+                <tridas:title>Onbekend</tridas:title>
+                <tridas:identifier domain="stichtingring.nl">E:1993041:VEL:0002</tridas:identifier>
+                <tridas:createdTimestamp>2010-06-30T14:33:57Z</tridas:createdTimestamp>
+                <tridas:lastModifiedTimestamp>2010-06-30T14:33:57Z</tridas:lastModifiedTimestamp>
+                <tridas:type lang="en" normal="Unknown" normalId="417" normalStd="DCCD">Onbekend</tridas:type>
+                <tridas:description>Velsen I: Vak 28, Vnr 33</tridas:description>
+                <tridas:taxon lang="la" normal="Quercus" normalId="1319" normalStd="DCCD_Taxon">Quercus</tridas:taxon>
+                <tridas:sample>
+                    <tridas:title>0002</tridas:title>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0002</tridas:identifier>
+                    <tridas:createdTimestamp>2010-05-18T18:37:07Z</tridas:createdTimestamp>
+                    <tridas:lastModifiedTimestamp>2010-05-18T18:37:07Z</tridas:lastModifiedTimestamp>
+                    <tridas:type lang="en" normal="various" normalId="1579" normalStd="DCCD">Various</tridas:type>
+                    <tridas:samplingDate certainty="approximately">1987-06-01</tridas:samplingDate>
+                    <tridas:radius>
+                        <tridas:title>4226</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0002:1</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>114</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>19</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3843">
+                            <tridas:title>VEL00021</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0002:1</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>114</tridas:ringCount>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete"/>
+<tridas:sapwood presence="incomplete">
+    <tridas:nrOfSapwoodRings>19</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Pauline van Rijn</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">89</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">25</tridas:lastYear>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00021.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="60"/>
+<tridas:value value="100"/>
+<tridas:value value="88"/>
+<tridas:value value="121"/>
+<tridas:value value="225"/>
+<tridas:value value="240"/>
+<tridas:value value="156"/>
+<tridas:value value="137"/>
+<tridas:value value="141"/>
+<tridas:value value="100"/>
+<tridas:value value="122"/>
+<tridas:value value="68"/>
+<tridas:value value="96"/>
+<tridas:value value="86"/>
+<tridas:value value="94"/>
+<tridas:value value="155"/>
+<tridas:value value="129"/>
+<tridas:value value="108"/>
+<tridas:value value="126"/>
+<tridas:value value="102"/>
+<tridas:value value="114"/>
+<tridas:value value="96"/>
+<tridas:value value="87"/>
+<tridas:value value="75"/>
+<tridas:value value="74"/>
+<tridas:value value="53"/>
+<tridas:value value="51"/>
+<tridas:value value="77"/>
+<tridas:value value="82"/>
+<tridas:value value="85"/>
+<tridas:value value="71"/>
+<tridas:value value="45"/>
+<tridas:value value="47"/>
+<tridas:value value="39"/>
+<tridas:value value="35"/>
+<tridas:value value="42"/>
+<tridas:value value="86"/>
+<tridas:value value="67"/>
+<tridas:value value="80"/>
+<tridas:value value="167"/>
+<tridas:value value="116"/>
+<tridas:value value="94"/>
+<tridas:value value="135"/>
+<tridas:value value="75"/>
+<tridas:value value="87"/>
+<tridas:value value="76"/>
+<tridas:value value="70"/>
+<tridas:value value="83"/>
+<tridas:value value="62"/>
+<tridas:value value="53"/>
+<tridas:value value="45"/>
+<tridas:value value="39"/>
+<tridas:value value="43"/>
+<tridas:value value="31"/>
+<tridas:value value="39"/>
+<tridas:value value="37"/>
+<tridas:value value="46"/>
+<tridas:value value="57"/>
+<tridas:value value="42"/>
+<tridas:value value="51"/>
+<tridas:value value="50"/>
+<tridas:value value="48"/>
+<tridas:value value="54"/>
+<tridas:value value="63"/>
+<tridas:value value="58"/>
+<tridas:value value="51"/>
+<tridas:value value="53"/>
+<tridas:value value="64"/>
+<tridas:value value="60"/>
+<tridas:value value="57"/>
+<tridas:value value="56"/>
+<tridas:value value="65"/>
+<tridas:value value="59"/>
+<tridas:value value="67"/>
+<tridas:value value="72"/>
+<tridas:value value="63"/>
+<tridas:value value="77"/>
+<tridas:value value="67"/>
+<tridas:value value="89"/>
+<tridas:value value="67"/>
+<tridas:value value="92"/>
+<tridas:value value="78"/>
+<tridas:value value="71"/>
+<tridas:value value="50"/>
+<tridas:value value="80"/>
+<tridas:value value="80"/>
+<tridas:value value="93"/>
+<tridas:value value="128"/>
+<tridas:value value="169"/>
+<tridas:value value="109"/>
+<tridas:value value="140"/>
+<tridas:value value="114"/>
+<tridas:value value="123"/>
+<tridas:value value="165"/>
+<tridas:value value="163"/>
+<tridas:value value="168"/>
+<tridas:value value="128"/>
+<tridas:value value="171"/>
+<tridas:value value="125"/>
+<tridas:value value="115"/>
+<tridas:value value="116"/>
+<tridas:value value="96"/>
+<tridas:value value="165"/>
+<tridas:value value="174"/>
+<tridas:value value="135"/>
+<tridas:value value="143"/>
+<tridas:value value="95"/>
+<tridas:value value="119"/>
+<tridas:value value="167"/>
+<tridas:value value="104"/>
+<tridas:value value="88"/>
+<tridas:value value="135"/>
+<tridas:value value="116"/>
+<tridas:value value="97"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4227</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0002:2</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>112</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>18</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3844">
+                            <tridas:title>VEL00022</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0002:2</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>112</tridas:ringCount>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete"/>
+<tridas:sapwood presence="incomplete">
+    <tridas:nrOfSapwoodRings>18</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Pauline van Rijn</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">86</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">26</tridas:lastYear>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00022.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="130"/>
+<tridas:value value="274"/>
+<tridas:value value="264"/>
+<tridas:value value="276"/>
+<tridas:value value="196"/>
+<tridas:value value="186"/>
+<tridas:value value="184"/>
+<tridas:value value="143"/>
+<tridas:value value="183"/>
+<tridas:value value="109"/>
+<tridas:value value="148"/>
+<tridas:value value="104"/>
+<tridas:value value="117"/>
+<tridas:value value="101"/>
+<tridas:value value="139"/>
+<tridas:value value="111"/>
+<tridas:value value="110"/>
+<tridas:value value="97"/>
+<tridas:value value="115"/>
+<tridas:value value="109"/>
+<tridas:value value="116"/>
+<tridas:value value="88"/>
+<tridas:value value="103"/>
+<tridas:value value="81"/>
+<tridas:value value="80"/>
+<tridas:value value="102"/>
+<tridas:value value="108"/>
+<tridas:value value="122"/>
+<tridas:value value="123"/>
+<tridas:value value="58"/>
+<tridas:value value="38"/>
+<tridas:value value="79"/>
+<tridas:value value="66"/>
+<tridas:value value="147"/>
+<tridas:value value="92"/>
+<tridas:value value="108"/>
+<tridas:value value="126"/>
+<tridas:value value="153"/>
+<tridas:value value="124"/>
+<tridas:value value="152"/>
+<tridas:value value="82"/>
+<tridas:value value="83"/>
+<tridas:value value="92"/>
+<tridas:value value="77"/>
+<tridas:value value="85"/>
+<tridas:value value="96"/>
+<tridas:value value="56"/>
+<tridas:value value="48"/>
+<tridas:value value="37"/>
+<tridas:value value="45"/>
+<tridas:value value="42"/>
+<tridas:value value="37"/>
+<tridas:value value="39"/>
+<tridas:value value="41"/>
+<tridas:value value="67"/>
+<tridas:value value="54"/>
+<tridas:value value="58"/>
+<tridas:value value="41"/>
+<tridas:value value="47"/>
+<tridas:value value="53"/>
+<tridas:value value="60"/>
+<tridas:value value="61"/>
+<tridas:value value="54"/>
+<tridas:value value="59"/>
+<tridas:value value="82"/>
+<tridas:value value="61"/>
+<tridas:value value="50"/>
+<tridas:value value="51"/>
+<tridas:value value="63"/>
+<tridas:value value="58"/>
+<tridas:value value="66"/>
+<tridas:value value="74"/>
+<tridas:value value="61"/>
+<tridas:value value="71"/>
+<tridas:value value="64"/>
+<tridas:value value="60"/>
+<tridas:value value="64"/>
+<tridas:value value="71"/>
+<tridas:value value="74"/>
+<tridas:value value="70"/>
+<tridas:value value="49"/>
+<tridas:value value="82"/>
+<tridas:value value="70"/>
+<tridas:value value="101"/>
+<tridas:value value="132"/>
+<tridas:value value="149"/>
+<tridas:value value="87"/>
+<tridas:value value="112"/>
+<tridas:value value="94"/>
+<tridas:value value="97"/>
+<tridas:value value="96"/>
+<tridas:value value="116"/>
+<tridas:value value="89"/>
+<tridas:value value="73"/>
+<tridas:value value="87"/>
+<tridas:value value="122"/>
+<tridas:value value="112"/>
+<tridas:value value="109"/>
+<tridas:value value="86"/>
+<tridas:value value="144"/>
+<tridas:value value="133"/>
+<tridas:value value="80"/>
+<tridas:value value="112"/>
+<tridas:value value="87"/>
+<tridas:value value="91"/>
+<tridas:value value="136"/>
+<tridas:value value="66"/>
+<tridas:value value="77"/>
+<tridas:value value="94"/>
+<tridas:value value="84"/>
+<tridas:value value="74"/>
+<tridas:value value="130"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4228</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0002:04499</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>114</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>19</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+<tridas:missingSapwoodRingsToBarkFoundation>+6</tridas:missingSapwoodRingsToBarkFoundation>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                    </tridas:radius>
+                </tridas:sample>
+            </tridas:element>
+            <tridas:element>
+                <tridas:title>Onbekend</tridas:title>
+                <tridas:identifier domain="stichtingring.nl">E:1993041:VEL:0003</tridas:identifier>
+                <tridas:createdTimestamp>2010-06-30T14:33:57Z</tridas:createdTimestamp>
+                <tridas:lastModifiedTimestamp>2010-06-30T14:33:57Z</tridas:lastModifiedTimestamp>
+                <tridas:type lang="en" normal="Unknown" normalId="417" normalStd="DCCD">Onbekend</tridas:type>
+                <tridas:description>Velsen I: Vnr 32</tridas:description>
+                <tridas:taxon lang="la" normal="Quercus" normalId="1319" normalStd="DCCD_Taxon">Quercus</tridas:taxon>
+                <tridas:sample>
+                    <tridas:title>0003</tridas:title>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0003</tridas:identifier>
+                    <tridas:createdTimestamp>2010-05-18T18:37:07Z</tridas:createdTimestamp>
+                    <tridas:lastModifiedTimestamp>2010-05-18T18:37:07Z</tridas:lastModifiedTimestamp>
+                    <tridas:type lang="en" normal="various" normalId="1579" normalStd="DCCD">Various</tridas:type>
+                    <tridas:samplingDate certainty="approximately">1987-06-01</tridas:samplingDate>
+                    <tridas:radius>
+                        <tridas:title>4229</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0003:1</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>99</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>0</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>20</tridas:missingSapwoodRingsToBark>
+<tridas:missingSapwoodRingsToBarkFoundation>c.  6</tridas:missingSapwoodRingsToBarkFoundation>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3845">
+                            <tridas:title>VEL00031</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0003:1</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:comments>Regio: Westelijk kustgebied. Bron: Jansma, E. 1995 (dissertatie Universiteit van Amsterdam)</tridas:comments>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>99</tridas:ringCount>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="unknown">
+    <tridas:missingHeartwoodRingsToPithFoundation></tridas:missingHeartwoodRingsToPithFoundation>
+</tridas:heartwood>
+<tridas:sapwood presence="absent">
+    <tridas:nrOfSapwoodRings>0</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBarkFoundation></tridas:missingSapwoodRingsToBarkFoundation>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Pauline van Rijn</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">93</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">6</tridas:lastYear>
+<tridas:datingReference>
+    <tridas:linkSeries>
+        <tridas:identifier domain="NLRING">Nieuwenhoorn</tridas:identifier>
+    </tridas:linkSeries>
+</tridas:datingReference>
+<tridas:statFoundation>
+    <tridas:statValue>0.001</tridas:statValue>
+    <tridas:type lang="en" normal="P" normalId="1582" normalStd="DCCD">P</tridas:type>
+    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+</tridas:statFoundation>
+<tridas:statFoundation>
+    <tridas:statValue>8.26</tridas:statValue>
+    <tridas:type lang="en" normal="students-t" normalId="1583" normalStd="DCCD">t</tridas:type>
+    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+</tridas:statFoundation>
+<tridas:statFoundation>
+    <tridas:statValue>72</tridas:statValue>
+    <tridas:type lang="en" normal="%PV" normalId="1581" normalStd="DCCD">%PV</tridas:type>
+    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+</tridas:statFoundation>
+<tridas:provenance>Nederland</tridas:provenance>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00031.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="108"/>
+<tridas:value value="75"/>
+<tridas:value value="103"/>
+<tridas:value value="95"/>
+<tridas:value value="153"/>
+<tridas:value value="54"/>
+<tridas:value value="122"/>
+<tridas:value value="111"/>
+<tridas:value value="212"/>
+<tridas:value value="139"/>
+<tridas:value value="195"/>
+<tridas:value value="140"/>
+<tridas:value value="120"/>
+<tridas:value value="152"/>
+<tridas:value value="85"/>
+<tridas:value value="107"/>
+<tridas:value value="99"/>
+<tridas:value value="94"/>
+<tridas:value value="94"/>
+<tridas:value value="125"/>
+<tridas:value value="127"/>
+<tridas:value value="183"/>
+<tridas:value value="163"/>
+<tridas:value value="190"/>
+<tridas:value value="147"/>
+<tridas:value value="260"/>
+<tridas:value value="259"/>
+<tridas:value value="167"/>
+<tridas:value value="154"/>
+<tridas:value value="183"/>
+<tridas:value value="176"/>
+<tridas:value value="144"/>
+<tridas:value value="132"/>
+<tridas:value value="150"/>
+<tridas:value value="150"/>
+<tridas:value value="148"/>
+<tridas:value value="77"/>
+<tridas:value value="93"/>
+<tridas:value value="65"/>
+<tridas:value value="98"/>
+<tridas:value value="119"/>
+<tridas:value value="128"/>
+<tridas:value value="105"/>
+<tridas:value value="137"/>
+<tridas:value value="155"/>
+<tridas:value value="101"/>
+<tridas:value value="139"/>
+<tridas:value value="104"/>
+<tridas:value value="168"/>
+<tridas:value value="103"/>
+<tridas:value value="120"/>
+<tridas:value value="136"/>
+<tridas:value value="115"/>
+<tridas:value value="61"/>
+<tridas:value value="49"/>
+<tridas:value value="28"/>
+<tridas:value value="38"/>
+<tridas:value value="43"/>
+<tridas:value value="37"/>
+<tridas:value value="47"/>
+<tridas:value value="64"/>
+<tridas:value value="81"/>
+<tridas:value value="91"/>
+<tridas:value value="81"/>
+<tridas:value value="70"/>
+<tridas:value value="79"/>
+<tridas:value value="113"/>
+<tridas:value value="140"/>
+<tridas:value value="101"/>
+<tridas:value value="115"/>
+<tridas:value value="99"/>
+<tridas:value value="169"/>
+<tridas:value value="121"/>
+<tridas:value value="128"/>
+<tridas:value value="139"/>
+<tridas:value value="138"/>
+<tridas:value value="132"/>
+<tridas:value value="123"/>
+<tridas:value value="94"/>
+<tridas:value value="101"/>
+<tridas:value value="111"/>
+<tridas:value value="122"/>
+<tridas:value value="113"/>
+<tridas:value value="119"/>
+<tridas:value value="141"/>
+<tridas:value value="153"/>
+<tridas:value value="123"/>
+<tridas:value value="50"/>
+<tridas:value value="91"/>
+<tridas:value value="88"/>
+<tridas:value value="130"/>
+<tridas:value value="155"/>
+<tridas:value value="145"/>
+<tridas:value value="135"/>
+<tridas:value value="148"/>
+<tridas:value value="136"/>
+<tridas:value value="125"/>
+<tridas:value value="135"/>
+<tridas:value value="96"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4230</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0003:2</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>108</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>4</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3846">
+                            <tridas:title>VEL00032</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0003:2</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>108</tridas:ringCount>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete"/>
+<tridas:sapwood presence="incomplete">
+    <tridas:nrOfSapwoodRings>4</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Pauline van Rijn</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">93</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">15</tridas:lastYear>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00032.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="119"/>
+<tridas:value value="69"/>
+<tridas:value value="73"/>
+<tridas:value value="107"/>
+<tridas:value value="135"/>
+<tridas:value value="43"/>
+<tridas:value value="129"/>
+<tridas:value value="111"/>
+<tridas:value value="138"/>
+<tridas:value value="138"/>
+<tridas:value value="193"/>
+<tridas:value value="145"/>
+<tridas:value value="150"/>
+<tridas:value value="148"/>
+<tridas:value value="83"/>
+<tridas:value value="89"/>
+<tridas:value value="81"/>
+<tridas:value value="74"/>
+<tridas:value value="65"/>
+<tridas:value value="95"/>
+<tridas:value value="103"/>
+<tridas:value value="164"/>
+<tridas:value value="87"/>
+<tridas:value value="109"/>
+<tridas:value value="128"/>
+<tridas:value value="130"/>
+<tridas:value value="211"/>
+<tridas:value value="167"/>
+<tridas:value value="132"/>
+<tridas:value value="129"/>
+<tridas:value value="120"/>
+<tridas:value value="80"/>
+<tridas:value value="112"/>
+<tridas:value value="139"/>
+<tridas:value value="116"/>
+<tridas:value value="120"/>
+<tridas:value value="56"/>
+<tridas:value value="70"/>
+<tridas:value value="90"/>
+<tridas:value value="98"/>
+<tridas:value value="126"/>
+<tridas:value value="100"/>
+<tridas:value value="110"/>
+<tridas:value value="119"/>
+<tridas:value value="158"/>
+<tridas:value value="65"/>
+<tridas:value value="132"/>
+<tridas:value value="84"/>
+<tridas:value value="134"/>
+<tridas:value value="131"/>
+<tridas:value value="120"/>
+<tridas:value value="121"/>
+<tridas:value value="127"/>
+<tridas:value value="70"/>
+<tridas:value value="41"/>
+<tridas:value value="45"/>
+<tridas:value value="44"/>
+<tridas:value value="48"/>
+<tridas:value value="47"/>
+<tridas:value value="50"/>
+<tridas:value value="59"/>
+<tridas:value value="75"/>
+<tridas:value value="74"/>
+<tridas:value value="72"/>
+<tridas:value value="38"/>
+<tridas:value value="47"/>
+<tridas:value value="78"/>
+<tridas:value value="91"/>
+<tridas:value value="101"/>
+<tridas:value value="88"/>
+<tridas:value value="90"/>
+<tridas:value value="152"/>
+<tridas:value value="129"/>
+<tridas:value value="94"/>
+<tridas:value value="103"/>
+<tridas:value value="95"/>
+<tridas:value value="91"/>
+<tridas:value value="89"/>
+<tridas:value value="97"/>
+<tridas:value value="86"/>
+<tridas:value value="92"/>
+<tridas:value value="96"/>
+<tridas:value value="101"/>
+<tridas:value value="139"/>
+<tridas:value value="176"/>
+<tridas:value value="112"/>
+<tridas:value value="86"/>
+<tridas:value value="43"/>
+<tridas:value value="76"/>
+<tridas:value value="75"/>
+<tridas:value value="89"/>
+<tridas:value value="123"/>
+<tridas:value value="128"/>
+<tridas:value value="114"/>
+<tridas:value value="149"/>
+<tridas:value value="115"/>
+<tridas:value value="109"/>
+<tridas:value value="157"/>
+<tridas:value value="166"/>
+<tridas:value value="103"/>
+<tridas:value value="103"/>
+<tridas:value value="108"/>
+<tridas:value value="82"/>
+<tridas:value value="81"/>
+<tridas:value value="92"/>
+<tridas:value value="81"/>
+<tridas:value value="88"/>
+<tridas:value value="84"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                </tridas:sample>
+            </tridas:element>
+            <tridas:element>
+                <tridas:title>Onbekend</tridas:title>
+                <tridas:identifier domain="stichtingring.nl">E:1993041:VEL:0004</tridas:identifier>
+                <tridas:createdTimestamp>2010-06-30T14:33:57Z</tridas:createdTimestamp>
+                <tridas:lastModifiedTimestamp>2010-06-30T14:33:57Z</tridas:lastModifiedTimestamp>
+                <tridas:type lang="en" normal="Unknown" normalId="417" normalStd="DCCD">Onbekend</tridas:type>
+                <tridas:description>Velsen I: Vak 28; Vnr 32</tridas:description>
+                <tridas:taxon lang="la" normal="Quercus" normalId="1319" normalStd="DCCD_Taxon">Quercus</tridas:taxon>
+                <tridas:sample>
+                    <tridas:title>0004</tridas:title>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0004</tridas:identifier>
+                    <tridas:createdTimestamp>2010-05-18T18:37:07Z</tridas:createdTimestamp>
+                    <tridas:lastModifiedTimestamp>2010-05-18T18:37:07Z</tridas:lastModifiedTimestamp>
+                    <tridas:type lang="en" normal="various" normalId="1579" normalStd="DCCD">Various</tridas:type>
+                    <tridas:samplingDate certainty="approximately">1987-06-01</tridas:samplingDate>
+                    <tridas:radius>
+                        <tridas:title>4231</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0004:1</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>116</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>24</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="present"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3847">
+                            <tridas:title>VEL00041</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0004:1</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:comments>Regio: Westelijk kustgebied. Bron: Jansma, E. 1995 (dissertatie Universiteit van Amsterdam)</tridas:comments>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>116</tridas:ringCount>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete"/>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>24</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+</tridas:sapwood>
+<tridas:bark presence="present"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Pauline van Rijn</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">88</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">28</tridas:lastYear>
+<tridas:datingReference>
+    <tridas:linkSeries>
+        <tridas:identifier domain="NLRING">Nieuwenhoorn</tridas:identifier>
+    </tridas:linkSeries>
+</tridas:datingReference>
+<tridas:statFoundation>
+    <tridas:statValue>0.001</tridas:statValue>
+    <tridas:type lang="en" normal="P" normalId="1582" normalStd="DCCD">P</tridas:type>
+    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+</tridas:statFoundation>
+<tridas:statFoundation>
+    <tridas:statValue>6.05</tridas:statValue>
+    <tridas:type lang="en" normal="students-t" normalId="1583" normalStd="DCCD">t</tridas:type>
+    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+</tridas:statFoundation>
+<tridas:statFoundation>
+    <tridas:statValue>70.4</tridas:statValue>
+    <tridas:type lang="en" normal="%PV" normalId="1581" normalStd="DCCD">%PV</tridas:type>
+    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+</tridas:statFoundation>
+<tridas:deathYear suffix="AD" certainty="exact">28</tridas:deathYear>
+<tridas:provenance>Nederland</tridas:provenance>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00041.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="112"/>
+<tridas:value value="222"/>
+<tridas:value value="245"/>
+<tridas:value value="158"/>
+<tridas:value value="224"/>
+<tridas:value value="226"/>
+<tridas:value value="178"/>
+<tridas:value value="153"/>
+<tridas:value value="136"/>
+<tridas:value value="117"/>
+<tridas:value value="118"/>
+<tridas:value value="93"/>
+<tridas:value value="154"/>
+<tridas:value value="85"/>
+<tridas:value value="100"/>
+<tridas:value value="151"/>
+<tridas:value value="182"/>
+<tridas:value value="186"/>
+<tridas:value value="126"/>
+<tridas:value value="128"/>
+<tridas:value value="178"/>
+<tridas:value value="138"/>
+<tridas:value value="121"/>
+<tridas:value value="98"/>
+<tridas:value value="132"/>
+<tridas:value value="59"/>
+<tridas:value value="74"/>
+<tridas:value value="95"/>
+<tridas:value value="114"/>
+<tridas:value value="112"/>
+<tridas:value value="116"/>
+<tridas:value value="59"/>
+<tridas:value value="45"/>
+<tridas:value value="74"/>
+<tridas:value value="75"/>
+<tridas:value value="67"/>
+<tridas:value value="101"/>
+<tridas:value value="115"/>
+<tridas:value value="234"/>
+<tridas:value value="274"/>
+<tridas:value value="156"/>
+<tridas:value value="195"/>
+<tridas:value value="84"/>
+<tridas:value value="112"/>
+<tridas:value value="147"/>
+<tridas:value value="119"/>
+<tridas:value value="148"/>
+<tridas:value value="107"/>
+<tridas:value value="75"/>
+<tridas:value value="61"/>
+<tridas:value value="50"/>
+<tridas:value value="48"/>
+<tridas:value value="57"/>
+<tridas:value value="28"/>
+<tridas:value value="41"/>
+<tridas:value value="41"/>
+<tridas:value value="60"/>
+<tridas:value value="42"/>
+<tridas:value value="74"/>
+<tridas:value value="43"/>
+<tridas:value value="48"/>
+<tridas:value value="49"/>
+<tridas:value value="54"/>
+<tridas:value value="83"/>
+<tridas:value value="54"/>
+<tridas:value value="46"/>
+<tridas:value value="67"/>
+<tridas:value value="87"/>
+<tridas:value value="83"/>
+<tridas:value value="61"/>
+<tridas:value value="124"/>
+<tridas:value value="54"/>
+<tridas:value value="110"/>
+<tridas:value value="113"/>
+<tridas:value value="118"/>
+<tridas:value value="126"/>
+<tridas:value value="137"/>
+<tridas:value value="129"/>
+<tridas:value value="111"/>
+<tridas:value value="134"/>
+<tridas:value value="94"/>
+<tridas:value value="83"/>
+<tridas:value value="45"/>
+<tridas:value value="88"/>
+<tridas:value value="76"/>
+<tridas:value value="87"/>
+<tridas:value value="119"/>
+<tridas:value value="139"/>
+<tridas:value value="76"/>
+<tridas:value value="85"/>
+<tridas:value value="90"/>
+<tridas:value value="101"/>
+<tridas:value value="114"/>
+<tridas:value value="92"/>
+<tridas:value value="81"/>
+<tridas:value value="55"/>
+<tridas:value value="92"/>
+<tridas:value value="96"/>
+<tridas:value value="89"/>
+<tridas:value value="109"/>
+<tridas:value value="67"/>
+<tridas:value value="104"/>
+<tridas:value value="112"/>
+<tridas:value value="93"/>
+<tridas:value value="104"/>
+<tridas:value value="89"/>
+<tridas:value value="88"/>
+<tridas:value value="131"/>
+<tridas:value value="86"/>
+<tridas:value value="61"/>
+<tridas:value value="136"/>
+<tridas:value value="129"/>
+<tridas:value value="113"/>
+<tridas:value value="131"/>
+<tridas:value value="211"/>
+<tridas:value value="205"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                </tridas:sample>
+            </tridas:element>
+            <tridas:element>
+                <tridas:title>Onbekend</tridas:title>
+                <tridas:identifier domain="stichtingring.nl">E:1993041:VEL:0005</tridas:identifier>
+                <tridas:createdTimestamp>2010-06-30T14:33:57Z</tridas:createdTimestamp>
+                <tridas:lastModifiedTimestamp>2010-06-30T14:33:57Z</tridas:lastModifiedTimestamp>
+                <tridas:type lang="en" normal="Unknown" normalId="417" normalStd="DCCD">Onbekend</tridas:type>
+                <tridas:description>Velsen I: Sp 222; Vnr 524</tridas:description>
+                <tridas:taxon lang="la" normal="Quercus" normalId="1319" normalStd="DCCD_Taxon">Quercus</tridas:taxon>
+                <tridas:sample>
+                    <tridas:title>0005</tridas:title>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0005</tridas:identifier>
+                    <tridas:createdTimestamp>2010-05-18T18:37:07Z</tridas:createdTimestamp>
+                    <tridas:lastModifiedTimestamp>2010-05-18T18:37:07Z</tridas:lastModifiedTimestamp>
+                    <tridas:type lang="en" normal="various" normalId="1579" normalStd="DCCD">Various</tridas:type>
+                    <tridas:samplingDate certainty="approximately">1987-06-01</tridas:samplingDate>
+                    <tridas:radius>
+                        <tridas:title>4232</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0005:1</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>65</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown">
+<tridas:missingHeartwoodRingsToPith>5</tridas:missingHeartwoodRingsToPith>
+                            </tridas:heartwood>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>17</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="present"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3848">
+                            <tridas:title>VEL00051</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0005:1</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:comments></tridas:comments>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>65</tridas:ringCount>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete">
+    <tridas:missingHeartwoodRingsToPith>5</tridas:missingHeartwoodRingsToPith>
+    <tridas:missingHeartwoodRingsToPithFoundation></tridas:missingHeartwoodRingsToPithFoundation>
+</tridas:heartwood>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>17</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+    <tridas:missingSapwoodRingsToBarkFoundation></tridas:missingSapwoodRingsToBarkFoundation>
+</tridas:sapwood>
+<tridas:bark presence="present"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Elsemieke Hanraets</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">28</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">37</tridas:lastYear>
+<tridas:deathYear suffix="AD" certainty="exact">37</tridas:deathYear>
+<tridas:provenance></tridas:provenance>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00051.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="94"/>
+<tridas:value value="182"/>
+<tridas:value value="148"/>
+<tridas:value value="157"/>
+<tridas:value value="121"/>
+<tridas:value value="173"/>
+<tridas:value value="200"/>
+<tridas:value value="183"/>
+<tridas:value value="195"/>
+<tridas:value value="152"/>
+<tridas:value value="139"/>
+<tridas:value value="166"/>
+<tridas:value value="142"/>
+<tridas:value value="165"/>
+<tridas:value value="242"/>
+<tridas:value value="179"/>
+<tridas:value value="120"/>
+<tridas:value value="121"/>
+<tridas:value value="177"/>
+<tridas:value value="169"/>
+<tridas:value value="137"/>
+<tridas:value value="277"/>
+<tridas:value value="193"/>
+<tridas:value value="224"/>
+<tridas:value value="163"/>
+<tridas:value value="161"/>
+<tridas:value value="149"/>
+<tridas:value value="150"/>
+<tridas:value value="151"/>
+<tridas:value value="134"/>
+<tridas:value value="79"/>
+<tridas:value value="65"/>
+<tridas:value value="79"/>
+<tridas:value value="82"/>
+<tridas:value value="93"/>
+<tridas:value value="102"/>
+<tridas:value value="91"/>
+<tridas:value value="47"/>
+<tridas:value value="47"/>
+<tridas:value value="55"/>
+<tridas:value value="77"/>
+<tridas:value value="64"/>
+<tridas:value value="65"/>
+<tridas:value value="48"/>
+<tridas:value value="66"/>
+<tridas:value value="71"/>
+<tridas:value value="94"/>
+<tridas:value value="62"/>
+<tridas:value value="49"/>
+<tridas:value value="61"/>
+<tridas:value value="55"/>
+<tridas:value value="49"/>
+<tridas:value value="58"/>
+<tridas:value value="47"/>
+<tridas:value value="68"/>
+<tridas:value value="45"/>
+<tridas:value value="42"/>
+<tridas:value value="53"/>
+<tridas:value value="47"/>
+<tridas:value value="56"/>
+<tridas:value value="55"/>
+<tridas:value value="66"/>
+<tridas:value value="89"/>
+<tridas:value value="89"/>
+<tridas:value value="61"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4233</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0005:2</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>50</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown">
+<tridas:missingHeartwoodRingsToPith>5</tridas:missingHeartwoodRingsToPith>
+                            </tridas:heartwood>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>13</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3849">
+                            <tridas:title>VEL00052</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0005:2</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:comments></tridas:comments>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>50</tridas:ringCount>
+<tridas:nrOfUnmeasuredOuterRings>1</tridas:nrOfUnmeasuredOuterRings>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete">
+    <tridas:missingHeartwoodRingsToPith>5</tridas:missingHeartwoodRingsToPith>
+    <tridas:missingHeartwoodRingsToPithFoundation></tridas:missingHeartwoodRingsToPithFoundation>
+</tridas:heartwood>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>13</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+    <tridas:missingSapwoodRingsToBarkFoundation></tridas:missingSapwoodRingsToBarkFoundation>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Elsemieke Hanraets</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">14</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">36</tridas:lastYear>
+<tridas:deathYear suffix="AD" certainty="exact">37</tridas:deathYear>
+<tridas:provenance></tridas:provenance>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00052.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="238"/>
+<tridas:value value="185"/>
+<tridas:value value="137"/>
+<tridas:value value="137"/>
+<tridas:value value="188"/>
+<tridas:value value="188"/>
+<tridas:value value="178"/>
+<tridas:value value="290"/>
+<tridas:value value="278"/>
+<tridas:value value="244"/>
+<tridas:value value="176"/>
+<tridas:value value="148"/>
+<tridas:value value="147"/>
+<tridas:value value="151"/>
+<tridas:value value="157"/>
+<tridas:value value="191"/>
+<tridas:value value="170"/>
+<tridas:value value="131"/>
+<tridas:value value="180"/>
+<tridas:value value="229"/>
+<tridas:value value="226"/>
+<tridas:value value="205"/>
+<tridas:value value="146"/>
+<tridas:value value="93"/>
+<tridas:value value="85"/>
+<tridas:value value="107"/>
+<tridas:value value="109"/>
+<tridas:value value="151"/>
+<tridas:value value="162"/>
+<tridas:value value="177"/>
+<tridas:value value="203"/>
+<tridas:value value="196"/>
+<tridas:value value="127"/>
+<tridas:value value="96"/>
+<tridas:value value="77"/>
+<tridas:value value="112"/>
+<tridas:value value="139"/>
+<tridas:value value="132"/>
+<tridas:value value="96"/>
+<tridas:value value="54"/>
+<tridas:value value="86"/>
+<tridas:value value="59"/>
+<tridas:value value="58"/>
+<tridas:value value="132"/>
+<tridas:value value="111"/>
+<tridas:value value="122"/>
+<tridas:value value="111"/>
+<tridas:value value="74"/>
+<tridas:value value="132"/>
+<tridas:value value="90"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4234</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0005:04505</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>65</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown">
+<tridas:missingHeartwoodRingsToPith>5</tridas:missingHeartwoodRingsToPith>
+                            </tridas:heartwood>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>17</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>0</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="present"/>
+                        </tridas:woodCompleteness>
+                    </tridas:radius>
+                </tridas:sample>
+            </tridas:element>
+            <tridas:element>
+                <tridas:title>Onbekend</tridas:title>
+                <tridas:identifier domain="stichtingring.nl">E:1993041:VEL:0006</tridas:identifier>
+                <tridas:createdTimestamp>2010-06-30T14:33:57Z</tridas:createdTimestamp>
+                <tridas:lastModifiedTimestamp>2010-06-30T14:33:57Z</tridas:lastModifiedTimestamp>
+                <tridas:type lang="en" normal="Unknown" normalId="417" normalStd="DCCD">Onbekend</tridas:type>
+                <tridas:description>Velsen I: Sp 221; Vnr 518</tridas:description>
+                <tridas:taxon lang="la" normal="Quercus" normalId="1319" normalStd="DCCD_Taxon">Quercus</tridas:taxon>
+                <tridas:sample>
+                    <tridas:title>0006</tridas:title>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0006</tridas:identifier>
+                    <tridas:createdTimestamp>2010-05-18T18:37:07Z</tridas:createdTimestamp>
+                    <tridas:lastModifiedTimestamp>2010-05-18T18:37:07Z</tridas:lastModifiedTimestamp>
+                    <tridas:type lang="en" normal="various" normalId="1579" normalStd="DCCD">Various</tridas:type>
+                    <tridas:samplingDate certainty="approximately">1987-06-01</tridas:samplingDate>
+                    <tridas:radius>
+                        <tridas:title>4235</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0006:1</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>43</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>12</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3850">
+                            <tridas:title>VEL00061</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0006:1</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:comments></tridas:comments>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>43</tridas:ringCount>
+<tridas:nrOfUnmeasuredOuterRings>1</tridas:nrOfUnmeasuredOuterRings>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete">
+    <tridas:missingHeartwoodRingsToPithFoundation></tridas:missingHeartwoodRingsToPithFoundation>
+</tridas:heartwood>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>12</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+    <tridas:missingSapwoodRingsToBarkFoundation></tridas:missingSapwoodRingsToBarkFoundation>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Elsemieke Hanraets</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">7</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">36</tridas:lastYear>
+<tridas:deathYear suffix="AD" certainty="exact">37</tridas:deathYear>
+<tridas:provenance></tridas:provenance>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00061.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="188"/>
+<tridas:value value="187"/>
+<tridas:value value="163"/>
+<tridas:value value="155"/>
+<tridas:value value="169"/>
+<tridas:value value="193"/>
+<tridas:value value="129"/>
+<tridas:value value="190"/>
+<tridas:value value="163"/>
+<tridas:value value="118"/>
+<tridas:value value="100"/>
+<tridas:value value="127"/>
+<tridas:value value="124"/>
+<tridas:value value="162"/>
+<tridas:value value="138"/>
+<tridas:value value="110"/>
+<tridas:value value="68"/>
+<tridas:value value="50"/>
+<tridas:value value="56"/>
+<tridas:value value="65"/>
+<tridas:value value="103"/>
+<tridas:value value="118"/>
+<tridas:value value="140"/>
+<tridas:value value="168"/>
+<tridas:value value="119"/>
+<tridas:value value="112"/>
+<tridas:value value="138"/>
+<tridas:value value="105"/>
+<tridas:value value="145"/>
+<tridas:value value="176"/>
+<tridas:value value="156"/>
+<tridas:value value="70"/>
+<tridas:value value="60"/>
+<tridas:value value="68"/>
+<tridas:value value="67"/>
+<tridas:value value="77"/>
+<tridas:value value="152"/>
+<tridas:value value="169"/>
+<tridas:value value="199"/>
+<tridas:value value="206"/>
+<tridas:value value="114"/>
+<tridas:value value="237"/>
+<tridas:value value="208"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4236</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0006:2</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>44</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown">
+<tridas:missingHeartwoodRingsToPith>1</tridas:missingHeartwoodRingsToPith>
+                            </tridas:heartwood>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>9</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3851">
+                            <tridas:title>VEL00062</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0006:2</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:comments></tridas:comments>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>44</tridas:ringCount>
+<tridas:nrOfUnmeasuredOuterRings>1</tridas:nrOfUnmeasuredOuterRings>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete">
+    <tridas:missingHeartwoodRingsToPith>1</tridas:missingHeartwoodRingsToPith>
+    <tridas:missingHeartwoodRingsToPithFoundation></tridas:missingHeartwoodRingsToPithFoundation>
+</tridas:heartwood>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>9</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+    <tridas:missingSapwoodRingsToBarkFoundation></tridas:missingSapwoodRingsToBarkFoundation>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Elsemieke Hanraets</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">8</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">36</tridas:lastYear>
+<tridas:deathYear suffix="AD">37</tridas:deathYear>
+<tridas:provenance></tridas:provenance>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00062.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="111"/>
+<tridas:value value="136"/>
+<tridas:value value="98"/>
+<tridas:value value="168"/>
+<tridas:value value="145"/>
+<tridas:value value="155"/>
+<tridas:value value="249"/>
+<tridas:value value="193"/>
+<tridas:value value="235"/>
+<tridas:value value="212"/>
+<tridas:value value="195"/>
+<tridas:value value="132"/>
+<tridas:value value="164"/>
+<tridas:value value="213"/>
+<tridas:value value="237"/>
+<tridas:value value="257"/>
+<tridas:value value="175"/>
+<tridas:value value="121"/>
+<tridas:value value="72"/>
+<tridas:value value="72"/>
+<tridas:value value="104"/>
+<tridas:value value="136"/>
+<tridas:value value="152"/>
+<tridas:value value="210"/>
+<tridas:value value="206"/>
+<tridas:value value="174"/>
+<tridas:value value="152"/>
+<tridas:value value="151"/>
+<tridas:value value="136"/>
+<tridas:value value="158"/>
+<tridas:value value="149"/>
+<tridas:value value="151"/>
+<tridas:value value="134"/>
+<tridas:value value="149"/>
+<tridas:value value="164"/>
+<tridas:value value="148"/>
+<tridas:value value="151"/>
+<tridas:value value="188"/>
+<tridas:value value="184"/>
+<tridas:value value="288"/>
+<tridas:value value="291"/>
+<tridas:value value="273"/>
+<tridas:value value="328"/>
+<tridas:value value="301"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4237</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0006:04508</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>44</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown">
+<tridas:missingHeartwoodRingsToPith>1</tridas:missingHeartwoodRingsToPith>
+                            </tridas:heartwood>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>12</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                    </tridas:radius>
+                </tridas:sample>
+            </tridas:element>
+            <tridas:element>
+                <tridas:title>Onbekend</tridas:title>
+                <tridas:identifier domain="stichtingring.nl">E:1993041:VEL:0007</tridas:identifier>
+                <tridas:createdTimestamp>2010-06-30T14:33:57Z</tridas:createdTimestamp>
+                <tridas:lastModifiedTimestamp>2010-06-30T14:33:57Z</tridas:lastModifiedTimestamp>
+                <tridas:type lang="en" normal="Unknown" normalId="417" normalStd="DCCD">Onbekend</tridas:type>
+                <tridas:description>Velsen I: Sp 221; Vnr 518</tridas:description>
+                <tridas:taxon lang="la" normal="Quercus" normalId="1319" normalStd="DCCD_Taxon">Quercus</tridas:taxon>
+                <tridas:sample>
+                    <tridas:title>0007</tridas:title>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0007</tridas:identifier>
+                    <tridas:createdTimestamp>2010-05-18T18:37:07Z</tridas:createdTimestamp>
+                    <tridas:lastModifiedTimestamp>2010-05-18T18:37:07Z</tridas:lastModifiedTimestamp>
+                    <tridas:type lang="en" normal="various" normalId="1579" normalStd="DCCD">Various</tridas:type>
+                    <tridas:samplingDate certainty="approximately">1987-06-01</tridas:samplingDate>
+                    <tridas:radius>
+                        <tridas:title>4238</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0007:1</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>56</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown"/>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>22</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3852">
+                            <tridas:title>VEL00071</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0007:1</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:comments></tridas:comments>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>56</tridas:ringCount>
+<tridas:nrOfUnmeasuredOuterRings>1</tridas:nrOfUnmeasuredOuterRings>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete">
+    <tridas:missingHeartwoodRingsToPithFoundation></tridas:missingHeartwoodRingsToPithFoundation>
+</tridas:heartwood>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>22</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+    <tridas:missingSapwoodRingsToBarkFoundation></tridas:missingSapwoodRingsToBarkFoundation>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Elsemieke Hanraets</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">20</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">36</tridas:lastYear>
+<tridas:deathYear suffix="AD" certainty="exact">37</tridas:deathYear>
+<tridas:provenance></tridas:provenance>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00071.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="136"/>
+<tridas:value value="58"/>
+<tridas:value value="72"/>
+<tridas:value value="68"/>
+<tridas:value value="108"/>
+<tridas:value value="128"/>
+<tridas:value value="163"/>
+<tridas:value value="140"/>
+<tridas:value value="72"/>
+<tridas:value value="79"/>
+<tridas:value value="123"/>
+<tridas:value value="139"/>
+<tridas:value value="120"/>
+<tridas:value value="187"/>
+<tridas:value value="131"/>
+<tridas:value value="188"/>
+<tridas:value value="184"/>
+<tridas:value value="163"/>
+<tridas:value value="183"/>
+<tridas:value value="152"/>
+<tridas:value value="205"/>
+<tridas:value value="218"/>
+<tridas:value value="92"/>
+<tridas:value value="98"/>
+<tridas:value value="127"/>
+<tridas:value value="135"/>
+<tridas:value value="97"/>
+<tridas:value value="97"/>
+<tridas:value value="97"/>
+<tridas:value value="80"/>
+<tridas:value value="92"/>
+<tridas:value value="62"/>
+<tridas:value value="57"/>
+<tridas:value value="58"/>
+<tridas:value value="71"/>
+<tridas:value value="83"/>
+<tridas:value value="85"/>
+<tridas:value value="63"/>
+<tridas:value value="81"/>
+<tridas:value value="71"/>
+<tridas:value value="66"/>
+<tridas:value value="90"/>
+<tridas:value value="71"/>
+<tridas:value value="107"/>
+<tridas:value value="79"/>
+<tridas:value value="53"/>
+<tridas:value value="72"/>
+<tridas:value value="56"/>
+<tridas:value value="62"/>
+<tridas:value value="74"/>
+<tridas:value value="62"/>
+<tridas:value value="90"/>
+<tridas:value value="87"/>
+<tridas:value value="58"/>
+<tridas:value value="99"/>
+<tridas:value value="83"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4239</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0007:2</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>62</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown">
+<tridas:missingHeartwoodRingsToPith>5</tridas:missingHeartwoodRingsToPith>
+                            </tridas:heartwood>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>19</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                        <tridas:measurementSeries id="M3853">
+                            <tridas:title>VEL00072</tridas:title>
+                            <tridas:identifier domain="stichtingring.nl">M:1993041:VEL:0007:2</tridas:identifier>
+                            <tridas:createdTimestamp>2010-08-29T15:35:31Z</tridas:createdTimestamp>
+                            <tridas:lastModifiedTimestamp>2010-08-29T15:35:31Z</tridas:lastModifiedTimestamp>
+                            <tridas:comments></tridas:comments>
+                            <tridas:measuringDate certainty="after">1993-01-01</tridas:measuringDate>
+                            <tridas:woodCompleteness>
+<tridas:ringCount>62</tridas:ringCount>
+<tridas:nrOfUnmeasuredOuterRings>1</tridas:nrOfUnmeasuredOuterRings>
+<tridas:pith presence="absent"/>
+<tridas:heartwood presence="incomplete">
+    <tridas:missingHeartwoodRingsToPith>5</tridas:missingHeartwoodRingsToPith>
+    <tridas:missingHeartwoodRingsToPithFoundation></tridas:missingHeartwoodRingsToPithFoundation>
+</tridas:heartwood>
+<tridas:sapwood presence="complete">
+    <tridas:nrOfSapwoodRings>19</tridas:nrOfSapwoodRings>
+    <tridas:lastRingUnderBark presence="present"></tridas:lastRingUnderBark>
+    <tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+    <tridas:missingSapwoodRingsToBarkFoundation></tridas:missingSapwoodRingsToBarkFoundation>
+</tridas:sapwood>
+<tridas:bark presence="absent"/>
+                            </tridas:woodCompleteness>
+                            <tridas:analyst>Elsemieke Hanraets</tridas:analyst>
+                            <tridas:dendrochronologist>Esther Jansma</tridas:dendrochronologist>
+                            <tridas:measuringMethod normalTridas="measuring platform">Measuring platform</tridas:measuringMethod>
+                            <tridas:interpretation>
+<tridas:dating type="absolute"/>
+<tridas:firstYear suffix="BC" certainty="exact">26</tridas:firstYear>
+<tridas:lastYear suffix="AD" certainty="exact">36</tridas:lastYear>
+<tridas:deathYear suffix="AD" certainty="exact">37</tridas:deathYear>
+<tridas:provenance></tridas:provenance>
+                            </tridas:interpretation>
+                            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00072.fh</tridas:genericField>
+                            <tridas:values>
+<tridas:variable normalTridas="ring width">Ring width</tridas:variable>
+<tridas:unit normalTridas="1/100th millimetres">1/100th millimetres</tridas:unit>
+<tridas:value value="68"/>
+<tridas:value value="117"/>
+<tridas:value value="82"/>
+<tridas:value value="135"/>
+<tridas:value value="133"/>
+<tridas:value value="106"/>
+<tridas:value value="115"/>
+<tridas:value value="38"/>
+<tridas:value value="63"/>
+<tridas:value value="60"/>
+<tridas:value value="100"/>
+<tridas:value value="94"/>
+<tridas:value value="110"/>
+<tridas:value value="100"/>
+<tridas:value value="46"/>
+<tridas:value value="51"/>
+<tridas:value value="57"/>
+<tridas:value value="64"/>
+<tridas:value value="88"/>
+<tridas:value value="138"/>
+<tridas:value value="65"/>
+<tridas:value value="130"/>
+<tridas:value value="126"/>
+<tridas:value value="106"/>
+<tridas:value value="100"/>
+<tridas:value value="200"/>
+<tridas:value value="171"/>
+<tridas:value value="128"/>
+<tridas:value value="64"/>
+<tridas:value value="68"/>
+<tridas:value value="114"/>
+<tridas:value value="142"/>
+<tridas:value value="119"/>
+<tridas:value value="117"/>
+<tridas:value value="115"/>
+<tridas:value value="116"/>
+<tridas:value value="91"/>
+<tridas:value value="97"/>
+<tridas:value value="92"/>
+<tridas:value value="96"/>
+<tridas:value value="88"/>
+<tridas:value value="132"/>
+<tridas:value value="118"/>
+<tridas:value value="74"/>
+<tridas:value value="65"/>
+<tridas:value value="43"/>
+<tridas:value value="44"/>
+<tridas:value value="56"/>
+<tridas:value value="58"/>
+<tridas:value value="61"/>
+<tridas:value value="57"/>
+<tridas:value value="45"/>
+<tridas:value value="66"/>
+<tridas:value value="56"/>
+<tridas:value value="84"/>
+<tridas:value value="72"/>
+<tridas:value value="80"/>
+<tridas:value value="96"/>
+<tridas:value value="115"/>
+<tridas:value value="64"/>
+<tridas:value value="111"/>
+<tridas:value value="122"/>
+                            </tridas:values>
+                        </tridas:measurementSeries>
+                    </tridas:radius>
+                    <tridas:radius>
+                        <tridas:title>4240</tridas:title>
+                        <tridas:identifier domain="stichtingring.nl">R:1993041:VEL:0007:04511</tridas:identifier>
+                        <tridas:createdTimestamp>2010-06-30T15:00:59Z</tridas:createdTimestamp>
+                        <tridas:lastModifiedTimestamp>2010-06-30T15:00:59Z</tridas:lastModifiedTimestamp>
+                        <tridas:woodCompleteness>
+                            <tridas:ringCount>62</tridas:ringCount>
+                            <tridas:pith presence="absent"/>
+                            <tridas:heartwood presence="unknown">
+<tridas:missingHeartwoodRingsToPith>5</tridas:missingHeartwoodRingsToPith>
+                            </tridas:heartwood>
+                            <tridas:sapwood presence="unknown">
+<tridas:nrOfSapwoodRings>22</tridas:nrOfSapwoodRings>
+<tridas:lastRingUnderBark presence="absent"></tridas:lastRingUnderBark>
+<tridas:missingSapwoodRingsToBark>1</tridas:missingSapwoodRingsToBark>
+                            </tridas:sapwood>
+                            <tridas:bark presence="absent"/>
+                        </tridas:woodCompleteness>
+                    </tridas:radius>
+                </tridas:sample>
+            </tridas:element>
+        </tridas:object>
+        <tridas:derivedSeries id="D633">
+            <tridas:title>VEL00010</tridas:title>
+            <tridas:identifier domain="stichtingring.nl">D:1993041:VEL:0001:0</tridas:identifier>
+            <tridas:createdTimestamp>2010-09-03T15:09:38Z</tridas:createdTimestamp>
+            <tridas:lastModifiedTimestamp>2010-09-03T15:09:38Z</tridas:lastModifiedTimestamp>
+            <tridas:comments></tridas:comments>
+            <tridas:type lang="en" normal="average of single sample" normalId="1587" normalStd="DCCD">Average of single sample</tridas:type>
+            <tridas:linkSeries>
+                <tridas:series>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0001</tridas:identifier>
+                </tridas:series>
+            </tridas:linkSeries>
+            <tridas:author>Pauline van Rijn</tridas:author>
+            <tridas:interpretation/>
+            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00010.fh</tridas:genericField>
+            <tridas:values>
+                <tridas:variable normalTridas="ring width"></tridas:variable>
+                <tridas:unitless/>
+                <tridas:value value="156"/>
+                <tridas:value value="186"/>
+                <tridas:value value="208"/>
+                <tridas:value value="234"/>
+                <tridas:value value="160"/>
+                <tridas:value value="212"/>
+                <tridas:value value="186"/>
+                <tridas:value value="105"/>
+                <tridas:value value="153"/>
+                <tridas:value value="145"/>
+                <tridas:value value="154"/>
+                <tridas:value value="215"/>
+                <tridas:value value="177"/>
+                <tridas:value value="214"/>
+                <tridas:value value="220"/>
+                <tridas:value value="227"/>
+                <tridas:value value="197"/>
+                <tridas:value value="232"/>
+                <tridas:value value="254"/>
+                <tridas:value value="207"/>
+                <tridas:value value="209"/>
+                <tridas:value value="235"/>
+                <tridas:value value="205"/>
+                <tridas:value value="233"/>
+                <tridas:value value="275"/>
+                <tridas:value value="319"/>
+                <tridas:value value="299"/>
+                <tridas:value value="342"/>
+                <tridas:value value="224"/>
+                <tridas:value value="367"/>
+                <tridas:value value="395"/>
+                <tridas:value value="346"/>
+                <tridas:value value="264"/>
+                <tridas:value value="174"/>
+                <tridas:value value="303"/>
+                <tridas:value value="306"/>
+                <tridas:value value="372"/>
+                <tridas:value value="341"/>
+                <tridas:value value="299"/>
+                <tridas:value value="403"/>
+                <tridas:value value="321"/>
+                <tridas:value value="360"/>
+                <tridas:value value="385"/>
+                <tridas:value value="360"/>
+                <tridas:value value="440"/>
+            </tridas:values>
+        </tridas:derivedSeries>
+        <tridas:derivedSeries id="D634">
+            <tridas:title>VEL00020</tridas:title>
+            <tridas:identifier domain="stichtingring.nl">D:1993041:VEL:0002:0</tridas:identifier>
+            <tridas:createdTimestamp>2010-09-03T15:09:38Z</tridas:createdTimestamp>
+            <tridas:lastModifiedTimestamp>2010-09-03T15:09:38Z</tridas:lastModifiedTimestamp>
+            <tridas:comments>Regio: Westelijk kustgebied. Bron: Jansma, E. 1995 (dissertatie Universiteit van Amsterdam)</tridas:comments>
+            <tridas:type lang="en" normal="average of single sample" normalId="1587" normalStd="DCCD">Average of single sample</tridas:type>
+            <tridas:linkSeries>
+                <tridas:series>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0002</tridas:identifier>
+                </tridas:series>
+            </tridas:linkSeries>
+            <tridas:author>Pauline van Rijn</tridas:author>
+            <tridas:interpretation>
+                <tridas:dating type="absolute"/>
+                <tridas:firstYear suffix="BC" certainty="exact">89</tridas:firstYear>
+                <tridas:lastYear suffix="AD" certainty="exact">26</tridas:lastYear>
+                <tridas:datingReference>
+                    <tridas:linkSeries>
+                        <tridas:identifier domain="NLRING">Nieuwenhoorn</tridas:identifier>
+                    </tridas:linkSeries>
+                </tridas:datingReference>
+                <tridas:statFoundation>
+                    <tridas:statValue>0.01</tridas:statValue>
+                    <tridas:type lang="en" normal="P" normalId="1582" normalStd="DCCD">P</tridas:type>
+                    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+                </tridas:statFoundation>
+                <tridas:statFoundation>
+                    <tridas:statValue>64</tridas:statValue>
+                    <tridas:type lang="en" normal="%PV" normalId="1581" normalStd="DCCD">%PV</tridas:type>
+                    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+                </tridas:statFoundation>
+                <tridas:statFoundation>
+                    <tridas:statValue>5.22</tridas:statValue>
+                    <tridas:type lang="en" normal="students-t" normalId="1583" normalStd="DCCD">t</tridas:type>
+                    <tridas:usedSoftware>unknown</tridas:usedSoftware>
+                </tridas:statFoundation>
+                <tridas:provenance>Nederland</tridas:provenance>
+            </tridas:interpretation>
+            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00020.fh</tridas:genericField>
+            <tridas:values>
+                <tridas:variable normalTridas="ring width"></tridas:variable>
+                <tridas:unitless/>
+                <tridas:value value="60"/>
+                <tridas:value value="100"/>
+                <tridas:value value="88"/>
+                <tridas:value value="126"/>
+                <tridas:value value="250"/>
+                <tridas:value value="252"/>
+                <tridas:value value="216"/>
+                <tridas:value value="167"/>
+                <tridas:value value="164"/>
+                <tridas:value value="142"/>
+                <tridas:value value="133"/>
+                <tridas:value value="126"/>
+                <tridas:value value="103"/>
+                <tridas:value value="117"/>
+                <tridas:value value="99"/>
+                <tridas:value value="136"/>
+                <tridas:value value="115"/>
+                <tridas:value value="124"/>
+                <tridas:value value="119"/>
+                <tridas:value value="106"/>
+                <tridas:value value="106"/>
+                <tridas:value value="106"/>
+                <tridas:value value="98"/>
+                <tridas:value value="96"/>
+                <tridas:value value="81"/>
+                <tridas:value value="78"/>
+                <tridas:value value="66"/>
+                <tridas:value value="79"/>
+                <tridas:value value="92"/>
+                <tridas:value value="97"/>
+                <tridas:value value="97"/>
+                <tridas:value value="84"/>
+                <tridas:value value="53"/>
+                <tridas:value value="39"/>
+                <tridas:value value="57"/>
+                <tridas:value value="54"/>
+                <tridas:value value="117"/>
+                <tridas:value value="80"/>
+                <tridas:value value="94"/>
+                <tridas:value value="147"/>
+                <tridas:value value="135"/>
+                <tridas:value value="109"/>
+                <tridas:value value="144"/>
+                <tridas:value value="79"/>
+                <tridas:value value="85"/>
+                <tridas:value value="84"/>
+                <tridas:value value="74"/>
+                <tridas:value value="84"/>
+                <tridas:value value="79"/>
+                <tridas:value value="55"/>
+                <tridas:value value="47"/>
+                <tridas:value value="38"/>
+                <tridas:value value="44"/>
+                <tridas:value value="37"/>
+                <tridas:value value="38"/>
+                <tridas:value value="38"/>
+                <tridas:value value="44"/>
+                <tridas:value value="62"/>
+                <tridas:value value="48"/>
+                <tridas:value value="55"/>
+                <tridas:value value="46"/>
+                <tridas:value value="48"/>
+                <tridas:value value="54"/>
+                <tridas:value value="62"/>
+                <tridas:value value="60"/>
+                <tridas:value value="53"/>
+                <tridas:value value="56"/>
+                <tridas:value value="73"/>
+                <tridas:value value="61"/>
+                <tridas:value value="54"/>
+                <tridas:value value="54"/>
+                <tridas:value value="64"/>
+                <tridas:value value="59"/>
+                <tridas:value value="67"/>
+                <tridas:value value="73"/>
+                <tridas:value value="62"/>
+                <tridas:value value="74"/>
+                <tridas:value value="66"/>
+                <tridas:value value="75"/>
+                <tridas:value value="66"/>
+                <tridas:value value="82"/>
+                <tridas:value value="76"/>
+                <tridas:value value="71"/>
+                <tridas:value value="50"/>
+                <tridas:value value="81"/>
+                <tridas:value value="75"/>
+                <tridas:value value="97"/>
+                <tridas:value value="130"/>
+                <tridas:value value="159"/>
+                <tridas:value value="98"/>
+                <tridas:value value="126"/>
+                <tridas:value value="104"/>
+                <tridas:value value="110"/>
+                <tridas:value value="131"/>
+                <tridas:value value="140"/>
+                <tridas:value value="129"/>
+                <tridas:value value="101"/>
+                <tridas:value value="129"/>
+                <tridas:value value="124"/>
+                <tridas:value value="114"/>
+                <tridas:value value="113"/>
+                <tridas:value value="91"/>
+                <tridas:value value="155"/>
+                <tridas:value value="154"/>
+                <tridas:value value="108"/>
+                <tridas:value value="128"/>
+                <tridas:value value="91"/>
+                <tridas:value value="105"/>
+                <tridas:value value="152"/>
+                <tridas:value value="85"/>
+                <tridas:value value="83"/>
+                <tridas:value value="115"/>
+                <tridas:value value="100"/>
+                <tridas:value value="86"/>
+                <tridas:value value="130"/>
+            </tridas:values>
+        </tridas:derivedSeries>
+        <tridas:derivedSeries id="D635">
+            <tridas:title>VEL00050</tridas:title>
+            <tridas:identifier domain="stichtingring.nl">D:1993041:VEL:0005:0</tridas:identifier>
+            <tridas:createdTimestamp>2010-09-03T15:09:38Z</tridas:createdTimestamp>
+            <tridas:lastModifiedTimestamp>2010-09-03T15:09:38Z</tridas:lastModifiedTimestamp>
+            <tridas:comments>Intern gedateerd tegen curves van dezelfde locatie</tridas:comments>
+            <tridas:type lang="en" normal="average of single sample" normalId="1587" normalStd="DCCD">Average of single sample</tridas:type>
+            <tridas:linkSeries>
+                <tridas:series>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0005</tridas:identifier>
+                </tridas:series>
+            </tridas:linkSeries>
+            <tridas:objective></tridas:objective>
+            <tridas:standardizingMethod></tridas:standardizingMethod>
+            <tridas:author>Elsemieke Hanraets</tridas:author>
+            <tridas:version></tridas:version>
+            <tridas:interpretation>
+                <tridas:dating type="absolute"/>
+                <tridas:firstYear suffix="BC" certainty="exact">28</tridas:firstYear>
+                <tridas:lastYear suffix="AD" certainty="exact">37</tridas:lastYear>
+                <tridas:datingReference>
+                    <tridas:linkSeries>
+                        <tridas:identifier domain="NLRING">Intern</tridas:identifier>
+                    </tridas:linkSeries>
+                </tridas:datingReference>
+                <tridas:deathYear suffix="AD" certainty="exact">37</tridas:deathYear>
+                <tridas:provenance></tridas:provenance>
+            </tridas:interpretation>
+            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00050.fh</tridas:genericField>
+            <tridas:values>
+                <tridas:variable normalTridas="ring width"></tridas:variable>
+                <tridas:unitless/>
+                <tridas:value value="94"/>
+                <tridas:value value="182"/>
+                <tridas:value value="148"/>
+                <tridas:value value="157"/>
+                <tridas:value value="121"/>
+                <tridas:value value="173"/>
+                <tridas:value value="200"/>
+                <tridas:value value="183"/>
+                <tridas:value value="195"/>
+                <tridas:value value="152"/>
+                <tridas:value value="139"/>
+                <tridas:value value="166"/>
+                <tridas:value value="142"/>
+                <tridas:value value="165"/>
+                <tridas:value value="240"/>
+                <tridas:value value="182"/>
+                <tridas:value value="129"/>
+                <tridas:value value="129"/>
+                <tridas:value value="183"/>
+                <tridas:value value="179"/>
+                <tridas:value value="158"/>
+                <tridas:value value="284"/>
+                <tridas:value value="236"/>
+                <tridas:value value="234"/>
+                <tridas:value value="170"/>
+                <tridas:value value="155"/>
+                <tridas:value value="148"/>
+                <tridas:value value="151"/>
+                <tridas:value value="154"/>
+                <tridas:value value="163"/>
+                <tridas:value value="125"/>
+                <tridas:value value="98"/>
+                <tridas:value value="130"/>
+                <tridas:value value="156"/>
+                <tridas:value value="160"/>
+                <tridas:value value="154"/>
+                <tridas:value value="119"/>
+                <tridas:value value="70"/>
+                <tridas:value value="66"/>
+                <tridas:value value="81"/>
+                <tridas:value value="93"/>
+                <tridas:value value="108"/>
+                <tridas:value value="114"/>
+                <tridas:value value="113"/>
+                <tridas:value value="135"/>
+                <tridas:value value="134"/>
+                <tridas:value value="111"/>
+                <tridas:value value="79"/>
+                <tridas:value value="63"/>
+                <tridas:value value="87"/>
+                <tridas:value value="97"/>
+                <tridas:value value="91"/>
+                <tridas:value value="77"/>
+                <tridas:value value="51"/>
+                <tridas:value value="77"/>
+                <tridas:value value="52"/>
+                <tridas:value value="50"/>
+                <tridas:value value="93"/>
+                <tridas:value value="79"/>
+                <tridas:value value="89"/>
+                <tridas:value value="83"/>
+                <tridas:value value="70"/>
+                <tridas:value value="111"/>
+                <tridas:value value="90"/>
+                <tridas:value value="61"/>
+            </tridas:values>
+        </tridas:derivedSeries>
+        <tridas:derivedSeries id="D636">
+            <tridas:title>VEL00060</tridas:title>
+            <tridas:identifier domain="stichtingring.nl">D:1993041:VEL:0006:0</tridas:identifier>
+            <tridas:createdTimestamp>2010-09-03T15:09:38Z</tridas:createdTimestamp>
+            <tridas:lastModifiedTimestamp>2010-09-03T15:09:38Z</tridas:lastModifiedTimestamp>
+            <tridas:comments>Intern gedateerd tegen curves van dezelfde locatie</tridas:comments>
+            <tridas:type lang="en" normal="average of single sample" normalId="1587" normalStd="DCCD">Average of single sample</tridas:type>
+            <tridas:linkSeries>
+                <tridas:series>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0006</tridas:identifier>
+                </tridas:series>
+            </tridas:linkSeries>
+            <tridas:objective></tridas:objective>
+            <tridas:standardizingMethod></tridas:standardizingMethod>
+            <tridas:author>Elsemieke Hanraets</tridas:author>
+            <tridas:version></tridas:version>
+            <tridas:interpretation>
+                <tridas:dating type="absolute"/>
+                <tridas:firstYear suffix="BC" certainty="exact">8</tridas:firstYear>
+                <tridas:lastYear suffix="AD" certainty="exact">36</tridas:lastYear>
+                <tridas:datingReference>
+                    <tridas:linkSeries>
+                        <tridas:identifier domain="NLRING">Intern</tridas:identifier>
+                    </tridas:linkSeries>
+                </tridas:datingReference>
+                <tridas:deathYear suffix="AD" certainty="exact">37</tridas:deathYear>
+                <tridas:provenance></tridas:provenance>
+            </tridas:interpretation>
+            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00060.fh</tridas:genericField>
+            <tridas:values>
+                <tridas:variable normalTridas="ring width"></tridas:variable>
+                <tridas:unitless/>
+                <tridas:value value="111"/>
+                <tridas:value value="162"/>
+                <tridas:value value="143"/>
+                <tridas:value value="166"/>
+                <tridas:value value="150"/>
+                <tridas:value value="162"/>
+                <tridas:value value="221"/>
+                <tridas:value value="161"/>
+                <tridas:value value="213"/>
+                <tridas:value value="188"/>
+                <tridas:value value="157"/>
+                <tridas:value value="116"/>
+                <tridas:value value="146"/>
+                <tridas:value value="169"/>
+                <tridas:value value="200"/>
+                <tridas:value value="198"/>
+                <tridas:value value="143"/>
+                <tridas:value value="95"/>
+                <tridas:value value="61"/>
+                <tridas:value value="64"/>
+                <tridas:value value="85"/>
+                <tridas:value value="120"/>
+                <tridas:value value="135"/>
+                <tridas:value value="175"/>
+                <tridas:value value="187"/>
+                <tridas:value value="147"/>
+                <tridas:value value="132"/>
+                <tridas:value value="145"/>
+                <tridas:value value="121"/>
+                <tridas:value value="152"/>
+                <tridas:value value="163"/>
+                <tridas:value value="154"/>
+                <tridas:value value="102"/>
+                <tridas:value value="105"/>
+                <tridas:value value="116"/>
+                <tridas:value value="108"/>
+                <tridas:value value="114"/>
+                <tridas:value value="170"/>
+                <tridas:value value="177"/>
+                <tridas:value value="244"/>
+                <tridas:value value="249"/>
+                <tridas:value value="194"/>
+                <tridas:value value="283"/>
+                <tridas:value value="255"/>
+            </tridas:values>
+        </tridas:derivedSeries>
+        <tridas:derivedSeries id="D637">
+            <tridas:title>VEL00070</tridas:title>
+            <tridas:identifier domain="stichtingring.nl">D:1993041:VEL:0007:0</tridas:identifier>
+            <tridas:createdTimestamp>2010-09-03T15:09:38Z</tridas:createdTimestamp>
+            <tridas:lastModifiedTimestamp>2010-09-03T15:09:38Z</tridas:lastModifiedTimestamp>
+            <tridas:comments>Intern gedateerd tegen curves van dezelfde locatie</tridas:comments>
+            <tridas:type lang="en" normal="average of single sample" normalId="1587" normalStd="DCCD">Average of single sample</tridas:type>
+            <tridas:linkSeries>
+                <tridas:series>
+                    <tridas:identifier domain="stichtingring.nl">S:1993041:VEL:0007</tridas:identifier>
+                </tridas:series>
+            </tridas:linkSeries>
+            <tridas:objective></tridas:objective>
+            <tridas:standardizingMethod></tridas:standardizingMethod>
+            <tridas:author>Elsemieke Hanraets</tridas:author>
+            <tridas:version></tridas:version>
+            <tridas:interpretation>
+                <tridas:dating type="absolute"/>
+                <tridas:firstYear suffix="BC" certainty="exact">26</tridas:firstYear>
+                <tridas:lastYear suffix="AD" certainty="exact">36</tridas:lastYear>
+                <tridas:datingReference>
+                    <tridas:linkSeries>
+                        <tridas:identifier domain="NLRING">Intern</tridas:identifier>
+                    </tridas:linkSeries>
+                </tridas:datingReference>
+                <tridas:deathYear suffix="AD" certainty="exact">37</tridas:deathYear>
+                <tridas:provenance></tridas:provenance>
+            </tridas:interpretation>
+            <tridas:genericField type="xs:string" name="dccd.treeringdatafile.uploaded">vel00070.fh</tridas:genericField>
+            <tridas:values>
+                <tridas:variable normalTridas="ring width"></tridas:variable>
+                <tridas:unitless/>
+                <tridas:value value="68"/>
+                <tridas:value value="117"/>
+                <tridas:value value="82"/>
+                <tridas:value value="135"/>
+                <tridas:value value="133"/>
+                <tridas:value value="106"/>
+                <tridas:value value="126"/>
+                <tridas:value value="48"/>
+                <tridas:value value="68"/>
+                <tridas:value value="64"/>
+                <tridas:value value="104"/>
+                <tridas:value value="111"/>
+                <tridas:value value="137"/>
+                <tridas:value value="120"/>
+                <tridas:value value="59"/>
+                <tridas:value value="65"/>
+                <tridas:value value="90"/>
+                <tridas:value value="102"/>
+                <tridas:value value="104"/>
+                <tridas:value value="163"/>
+                <tridas:value value="98"/>
+                <tridas:value value="159"/>
+                <tridas:value value="155"/>
+                <tridas:value value="135"/>
+                <tridas:value value="142"/>
+                <tridas:value value="176"/>
+                <tridas:value value="188"/>
+                <tridas:value value="173"/>
+                <tridas:value value="78"/>
+                <tridas:value value="83"/>
+                <tridas:value value="121"/>
+                <tridas:value value="139"/>
+                <tridas:value value="108"/>
+                <tridas:value value="107"/>
+                <tridas:value value="106"/>
+                <tridas:value value="98"/>
+                <tridas:value value="92"/>
+                <tridas:value value="80"/>
+                <tridas:value value="75"/>
+                <tridas:value value="77"/>
+                <tridas:value value="80"/>
+                <tridas:value value="108"/>
+                <tridas:value value="102"/>
+                <tridas:value value="69"/>
+                <tridas:value value="73"/>
+                <tridas:value value="57"/>
+                <tridas:value value="55"/>
+                <tridas:value value="73"/>
+                <tridas:value value="65"/>
+                <tridas:value value="84"/>
+                <tridas:value value="68"/>
+                <tridas:value value="49"/>
+                <tridas:value value="69"/>
+                <tridas:value value="56"/>
+                <tridas:value value="73"/>
+                <tridas:value value="73"/>
+                <tridas:value value="71"/>
+                <tridas:value value="93"/>
+                <tridas:value value="101"/>
+                <tridas:value value="61"/>
+                <tridas:value value="105"/>
+                <tridas:value value="103"/>
+            </tridas:values>
+        </tridas:derivedSeries>
+    </tridas:project>
+</tridas:tridas>
