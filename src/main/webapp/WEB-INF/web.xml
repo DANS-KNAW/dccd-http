@@ -3,7 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>dccd-rest</display-name>
+  <display-name>DCCD-REST</display-name>
   
   	<servlet>
 		<servlet-name>jersey-serlvet</servlet-name>
