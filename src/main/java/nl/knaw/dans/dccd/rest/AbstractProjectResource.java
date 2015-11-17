@@ -58,8 +58,11 @@ public abstract class AbstractProjectResource extends AbstractResource {
 	public static final String LABNAME_QUERY_PARAM = "labname";
 	public static final String OBJECT_TYPE_QUERY_PARAM = "object.type";
 	public static final String OBJECT_CREATOR_QUERY_PARAM = "object.creator";
+	public static final String OBJECT_TITLE = "object.title";
+	public static final String OBJECT_ID = "object.id";
 	public static final String ELEMENT_TAXON_QUERY_PARAM = "element.taxon";
 	public static final String ELEMENT_TYPE_QUERY_PARAM = "element.type";
+	public static final String ELEMENT_ID = "element.id";
 	public static final String DEATH_YEAR_FROM_QUERY_PARAM = "deathYearFrom";
 	public static final String DEATH_YEAR_TO_QUERY_PARAM = "deathYearTo";
 	public static final String FIRST_YEAR_FROM_QUERY_PARAM = "firstYearFrom";
@@ -68,6 +71,10 @@ public abstract class AbstractProjectResource extends AbstractResource {
 	public static final String LAST_YEAR_TO_QUERY_PARAM = "lastYearTo";
 	public static final String PITH_YEAR_FROM_QUERY_PARAM = "pithYearFrom";
 	public static final String PITH_YEAR_TO_QUERY_PARAM = "pithYearTo";
+	public static final String PROJECT_ORGANISATION_ID = "project.organisation.id";
+	public static final String PROJECT_TITLE = "project.title";
+	public static final String PROJECT_ID = "project.id";
+
 
 	/**
 	 * Construct search result list information as XML String
