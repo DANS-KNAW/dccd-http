@@ -56,6 +56,8 @@ public abstract class AbstractResource {
 	 */
 	public static final String LIMIT_PARAM = "limit";
 	public static final String OFFSET_PARAM = "offset";
+	public static final String MOD_FROM = "modFrom";
+	public static final String MOD_TO = "modTo";
 
 	/**
 	 * With each request the headers of that request are injected into the
