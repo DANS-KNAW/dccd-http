@@ -57,11 +57,23 @@ public class ProjectObjectResource extends AbstractProjectResource {
 	 * 
 	 * @param q
 	 * @param projectCategory
+	 * @param projectLabname
 	 * @param objectType
+	 * @param objectCreator
 	 * @param elementTaxon
+	 * @param elementType
+	 * @param organisationID
+	 * @param deathYearFrom
+	 * @param deathYearTo
+	 * @param firstYearFrom
+	 * @param firstYearTo
+	 * @param lastYearFrom
+	 * @param lastYearTo
+	 * @param pithYearFrom
+	 * @param pithYearTo
 	 * @param offset
-	 * @param limit
-	 * @return A response containing the paged list of results
+	 * @param limit A response containing the paged list of results
+	 * @return
 	 */
 	@GET
 	@Path("/query")
@@ -70,9 +82,15 @@ public class ProjectObjectResource extends AbstractProjectResource {
 			   @QueryParam(CATEGORY_QUERY_PARAM) @DefaultValue("") String projectCategory,
 			   @QueryParam(LABNAME_QUERY_PARAM) @DefaultValue("") String projectLabname,
 			   @QueryParam(OBJECT_TYPE_QUERY_PARAM) @DefaultValue("") String objectType,
-			   @QueryParam(OBJECT_CREATOR_QUERY_PARAM) @DefaultValue("") String objectCreator,   
+			   @QueryParam(OBJECT_CREATOR_QUERY_PARAM) @DefaultValue("") String objectCreator,
+			   @QueryParam(OBJECT_TITLE) @DefaultValue("") String objectTitle,
+			   @QueryParam(OBJECT_ID) @DefaultValue("") String objectID,
 			   @QueryParam(ELEMENT_TAXON_QUERY_PARAM) @DefaultValue("") String elementTaxon,
 			   @QueryParam(ELEMENT_TYPE_QUERY_PARAM) @DefaultValue("") String elementType,
+			   @QueryParam(ELEMENT_ID) @DefaultValue("") String elementID,
+			   @QueryParam(PROJECT_ORGANISATION_ID) @DefaultValue("") String organisationID,
+			   @QueryParam(PROJECT_TITLE) @DefaultValue("") String projectTitle,
+			   @QueryParam(PROJECT_ID) @DefaultValue("") String projectID,
 			   @QueryParam(DEATH_YEAR_FROM_QUERY_PARAM) Integer deathYearFrom,
 			   @QueryParam(DEATH_YEAR_TO_QUERY_PARAM) Integer deathYearTo,
 			   @QueryParam(FIRST_YEAR_FROM_QUERY_PARAM) Integer firstYearFrom,
@@ -82,7 +100,9 @@ public class ProjectObjectResource extends AbstractProjectResource {
 			   @QueryParam(PITH_YEAR_FROM_QUERY_PARAM) Integer pithYearFrom,
 			   @QueryParam(PITH_YEAR_TO_QUERY_PARAM) Integer pithYearTo,
 			   @QueryParam(OFFSET_PARAM) @DefaultValue("0") int offset,
-	           @QueryParam(LIMIT_PARAM) @DefaultValue("" + DEFAULT_LIST_LIMIT) int limit) {
+	           @QueryParam(LIMIT_PARAM) @DefaultValue("" + DEFAULT_LIST_LIMIT) int limit) 
+	
+	{
 		// Advanced Search need login on the GUI, so we want it here also
 		// authenticate user
 		DccdUser user = null;
@@ -101,6 +121,8 @@ public class ProjectObjectResource extends AbstractProjectResource {
 		request.setLimit(limit)	;
 		request.setOffset(offset);
 		
+		
+		
 		// Show the standard Object result
 		request.addFilterBean(DccdObjectSB.class);
 		//request.addSortField(new SimpleSortField(DccdProjectSB.PID_NAME, SortOrder.ASC));
@@ -110,17 +132,37 @@ public class ProjectObjectResource extends AbstractProjectResource {
 				DatasetState.PUBLISHED.toString());
 		request.addFilterQuery(stateField);
 
+		
 		// project fields
-		addProjectCategory(projectCategory, request);
-		addProjectLabname(projectLabname, request);
+		addCombinedOptionalFieldParameterToRequest(request, new CombinedOptionalField<String>(new ArrayList<String>(){{
+			add(DccdSB.TRIDAS_PROJECT_CATEGORY_NAME);
+			add(DccdSB.TRIDAS_PROJECT_CATEGORY_NORMAL_NAME);
+			add(DccdSB.TRIDAS_PROJECT_CATEGORY_NORMALTRIDAS_NAME);
+		}}), projectCategory);		
+		addCombinedOptionalFieldParameterToRequest(request, new CombinedOptionalField<String>(new ArrayList<String>(){{
+			add(DccdSB.OWNER_ID_NAME);
+		}}), organisationID);
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.TRIDAS_PROJECT_LABORATORY_NAME_NAME), projectLabname);
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.TRIDAS_PROJECT_TITLE_NAME), projectTitle);
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.TRIDAS_PROJECT_IDENTIFIER_NAME), projectID);
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.OWNER_ID_NAME), organisationID);
+		
 		// object fields
-		addObjectType(objectType, request);
-		addObjectCreator(objectCreator, request);
+		addCombinedOptionalFieldParameterToRequest(request, new CombinedOptionalField<String>(new ArrayList<String>(){{
+				add(DccdSB.TRIDAS_OBJECT_TYPE_NAME);
+				add(DccdSB.TRIDAS_OBJECT_TYPE_NORMAL_NAME);
+			}}), objectType);
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.TRIDAS_OBJECT_CREATOR_NAME), objectCreator);
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.TRIDAS_OBJECT_TITLE_NAME), objectTitle);
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.TRIDAS_OBJECT_IDENTIFIER_NAME), objectID);
+		
 		// element fields
-		addElementTaxon(elementTaxon, request);
-		addElementType(elementType, request);
-
-		// TODO add title and identifier for project, object and element
+		addCombinedOptionalFieldParameterToRequest(request, new CombinedOptionalField<String>(new ArrayList<String>(){{
+			add(DccdSB.TRIDAS_ELEMENT_TYPE_NAME);
+			add(DccdSB.TRIDAS_ELEMENT_TYPE_NORMAL_NAME);
+		}}), elementType);
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.TRIDAS_ELEMENT_TAXON_NAME), elementTaxon);	
+		addSimpleFieldParameterToRequest(request, new SimpleField<String>(DccdSB.TRIDAS_ELEMENT_IDENTIFIER_NAME), elementID);
 
 		// year range queries
 		addDeathYearRange(deathYearFrom, deathYearTo, request);
@@ -171,77 +213,39 @@ public class ProjectObjectResource extends AbstractProjectResource {
 	{
 		addYearRange(DccdSB.TRIDAS_MEASUREMENTSERIES_INTERPRETATION_PITHYEAR_NAME, yearFrom, yearTo, request);
 	}
-
-	private void addProjectCategory(final String projectCategory, SearchRequest request) 
+			
+	/**
+	 * Generic constructor for adding a parameter to the specified request.  
+	 * 
+	 * @param request
+	 * @param field
+	 * @param value
+	 */
+	private void addSimpleFieldParameterToRequest(SearchRequest request, SimpleField<String> field, final String value)
 	{
-		if (!projectCategory.isEmpty()) {
-			@SuppressWarnings("serial")
-			CombinedOptionalField<String> projectCategoryField = new CombinedOptionalField<String>(new ArrayList<String>(){{
-				add(DccdSB.TRIDAS_PROJECT_CATEGORY_NAME);
-				add(DccdSB.TRIDAS_PROJECT_CATEGORY_NORMAL_NAME);
-				add(DccdSB.TRIDAS_PROJECT_CATEGORY_NORMALTRIDAS_NAME);
-			}});
-			projectCategoryField.setValue(projectCategory);
-			request.addFilterQuery(projectCategoryField);
-		}		
-	}
-	
-	private void addProjectLabname(final String projectLabname, SearchRequest request) 
-	{
-		if(!projectLabname.isEmpty())
+		if(!value.isEmpty())
 		{
-			SimpleField<String> projectLabnameField = new SimpleField<String>(DccdSB.TRIDAS_PROJECT_LABORATORY_NAME_NAME);
-			projectLabnameField.setValue(projectLabname);
-			request.addFilterQuery(projectLabnameField);
+			field.setValue(value);
+			request.addFilterQuery(field);
 		}
 	}
 	
-	private void addObjectType(final String objectType, SearchRequest request) 
+	/**
+	 * Generic constructor for adding a parameter to the specified request.  Accepts a CombinedOptionalField i.e. a number 
+	 * of optional fields to search in.
+	 * 
+	 * @param request
+	 * @param field
+	 * @param value
+	 */
+	private void addCombinedOptionalFieldParameterToRequest(SearchRequest request, CombinedOptionalField<String> field, final String value)
 	{
-		if (!objectType.isEmpty()) {
-			@SuppressWarnings("serial")
-			CombinedOptionalField<String> objectTypeField = new CombinedOptionalField<String>(new ArrayList<String>(){{
-				add(DccdSB.TRIDAS_OBJECT_TYPE_NAME);
-				add(DccdSB.TRIDAS_OBJECT_TYPE_NORMAL_NAME);
-			}});
-			objectTypeField.setValue(objectType);
-			request.addFilterQuery(objectTypeField);
+		if (!value.isEmpty()) {
+			field.setValue(value);
+			request.addFilterQuery(field);
 		}		
 	}
-	
-	private void addObjectCreator(final String objectCreator, SearchRequest request) 
-	{
-		if(!objectCreator.isEmpty())
-		{
-			SimpleField<String> objectCreatorField = new SimpleField<String>(DccdSB.TRIDAS_OBJECT_CREATOR_NAME);
-			objectCreatorField.setValue(objectCreator);
-			request.addFilterQuery(objectCreatorField);
-		}		
-	}
-	
-	private void addElementTaxon(final String elementTaxon, SearchRequest request) 
-	{
-		if (!elementTaxon.isEmpty()) {
-			SimpleField<String> elementTaxonField = new SimpleField<String>(DccdSB.TRIDAS_ELEMENT_TAXON_NAME);
-			elementTaxonField.setValue(elementTaxon);
-			request.addFilterQuery(elementTaxonField);
-		}		
-	}
-	
-	private void addElementType(final String elementType, SearchRequest request) 
-	{
-		if (!elementType.isEmpty()) {
-			@SuppressWarnings("serial")
-			CombinedOptionalField<String> elementTypeField = new CombinedOptionalField<String>(new ArrayList<String>(){{
-				add(DccdSB.TRIDAS_ELEMENT_TYPE_NAME);
-				add(DccdSB.TRIDAS_ELEMENT_TYPE_NORMAL_NAME);
-			}});
-			elementTypeField.setValue(elementType);
-			request.addFilterQuery(elementTypeField);
-		}		
-	}
-	
-	
+		
 	protected String getObjectListSearchResultAsXml(SearchResult<? extends DccdSB> searchResults, 
 			int offset, int limit) {
 		java.io.StringWriter sw = new StringWriter();
