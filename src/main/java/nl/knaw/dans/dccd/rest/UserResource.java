@@ -10,7 +10,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.commons.lang.StringEscapeUtils;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormatter;
@@ -21,17 +20,18 @@ import nl.knaw.dans.dccd.application.services.DccdUserService;
 import nl.knaw.dans.dccd.application.services.UserServiceException;
 import nl.knaw.dans.dccd.model.DccdUser;
 import nl.knaw.dans.dccd.model.DccdUser.Role;
+import nl.knaw.dans.dccd.rest.util.XmlStringUtil;
 
 @Path("/user")
 public class UserResource extends AbstractResource {
 
 	/**
-	 * Get a full list of all users (members)
+	 * Get a list of users (members)
 	 * 
 	 * @return
 	 */
 	@GET
-	@Path("/")
+	//@Path("/")
 	public Response getUsers()
 	{
 		// authenticate user
@@ -52,24 +52,20 @@ public class UserResource extends AbstractResource {
 			// construct the response
 			java.io.StringWriter sw = new StringWriter();
 			
-			sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
+			sw.append(XmlStringUtil.XML_INSTRUCTION_STR); 
 			sw.append("<users>");
 			for (DccdUser user : users) {
 				sw.append("<user>");
-				
-				sw.append("<id>" + StringEscapeUtils.escapeXml(user.getId()) + "</id>");
-				sw.append("<displayname>" + StringEscapeUtils.escapeXml(user.getDisplayName()) + "</displayname>");
-				sw.append("<lastname>" + StringEscapeUtils.escapeXml(user.getSurname()) + "</lastname>");				
-				sw.append("<email>" + user.getEmail() + "</email>"); // no escape needed
-				sw.append("<organisation>" + StringEscapeUtils.escapeXml(user.getOrganization()) + "</organisation>");
+				sw.append(getGeneralUserInfo(user));
+
 				if (requestingUser.hasRole(Role.ADMIN))
 				{
 					// administrative
-					sw.append(getXMLElementString("accountState", user.getState().toString())); //account state and not a location
+					sw.append(XmlStringUtil.getXMLElementString("accountState", user.getState().toString())); //account state and not a location
 					if (!user.getRoles().isEmpty()) {
 						sw.append("<roles>");
 						for (Role role : user.getRoles()) {
-							sw.append(getXMLElementString("role", role.toString()));
+							sw.append(XmlStringUtil.getXMLElementString("role", role.toString()));
 						}
 						sw.append("</roles>");
 					}
@@ -85,6 +81,13 @@ public class UserResource extends AbstractResource {
 		}
 	}
 
+	/**
+	 * Get detailed information of a user
+	 * 
+	 * @param uid
+	 * 				The user id
+	 * @return
+	 */
 	@GET
 	@Path("/{uid}/")
 	public Response getUserByid(@PathParam("uid") String uid) {
@@ -106,26 +109,21 @@ public class UserResource extends AbstractResource {
 				// construct the response
 				java.io.StringWriter sw = new StringWriter();
 				
-				sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
+				sw.append(XmlStringUtil.XML_INSTRUCTION_STR);
 				sw.append("<user>");
-				
-				sw.append("<id>" + StringEscapeUtils.escapeXml(user.getId()) + "</id>");
-				sw.append("<displayname>" + StringEscapeUtils.escapeXml(user.getDisplayName()) + "</displayname>");
-				sw.append("<lastname>" + StringEscapeUtils.escapeXml(user.getSurname()) + "</lastname>");				
-				sw.append("<email>" + user.getEmail() + "</email>"); // no escape needed
-				sw.append("<organisation>" + StringEscapeUtils.escapeXml(user.getOrganization()) + "</organisation>");
+				sw.append(getGeneralUserInfo(user));
 				
 				// restricted more detailed personal information 
-				sw.append(getXMLElementStringOptional("title", user.getTitle()));
-				sw.append(getXMLElementStringOptional("initials", user.getInitials()));// actually required on registration
-				sw.append(getXMLElementStringOptional("prefixes", user.getPrefixes()));
-				sw.append(getXMLElementStringOptional("function", user.getFunction()));
-				sw.append(getXMLElementStringOptional("telephone", user.getTelephone()));
-				sw.append(getXMLElementStringOptional("dai", user.getDigitalAuthorIdentifier()));
+				sw.append(XmlStringUtil.getXMLElementStringOptional("title", user.getTitle()));
+				sw.append(XmlStringUtil.getXMLElementStringOptional("initials", user.getInitials()));// actually required on registration
+				sw.append(XmlStringUtil.getXMLElementStringOptional("prefixes", user.getPrefixes()));
+				sw.append(XmlStringUtil.getXMLElementStringOptional("function", user.getFunction()));
+				sw.append(XmlStringUtil.getXMLElementStringOptional("telephone", user.getTelephone()));
+				sw.append(XmlStringUtil.getXMLElementStringOptional("dai", user.getDigitalAuthorIdentifier()));
 				
 				// administrative
-				sw.append(getXMLElementString("lastLoginDate", getDateTimeFormattedAsString(user.getLastLoginDate())));		
-				sw.append(getXMLElementString("accountState", user.getState().toString())); //account state and not a location
+				sw.append(XmlStringUtil.getXMLElementString("lastLoginDate", getDateTimeFormattedAsString(user.getLastLoginDate())));		
+				sw.append(XmlStringUtil.getXMLElementString("accountState", user.getState().toString())); //account state and not a location
 				sw.append(getXMLUserRolesStringOptional(user));
 
 				sw.append("</user>");
@@ -138,13 +136,24 @@ public class UserResource extends AbstractResource {
 		}
 	}
 	
+	private String getGeneralUserInfo(final DccdUser user)
+	{
+		java.io.StringWriter sw = new StringWriter();
+		sw.append(XmlStringUtil.getXMLElementString("id", user.getId()));
+		sw.append(XmlStringUtil.getXMLElementString("displayname", user.getDisplayName()));
+		sw.append(XmlStringUtil.getXMLElementString("lastname", user.getSurname()));
+		sw.append("<email>" + user.getEmail() + "</email>"); // no escape needed
+		sw.append(XmlStringUtil.getXMLElementString("organisation", user.getOrganization()));
+		return sw.toString();
+	}
+	
 	private String getXMLUserRolesStringOptional(final DccdUser user)
 	{
 		java.io.StringWriter sw = new StringWriter();
 		if (!user.getRoles().isEmpty()) {
 			sw.append("<roles>");
 			for (Role role : user.getRoles()) {
-				sw.append(getXMLElementString("role", role.toString()));
+				sw.append(XmlStringUtil.getXMLElementString("role", role.toString()));
 			}
 			sw.append("</roles>");
 		}
@@ -156,19 +165,6 @@ public class UserResource extends AbstractResource {
 		DateTimeFormatter fmt = ISODateTimeFormat.dateTime();
 		DateTime dUtc = d.toDateTime(DateTimeZone.UTC);
 		return fmt.print(dUtc);
-	}
-	
-	private String getXMLElementStringOptional(final String tagname, final String text)
-	{
-		if (text != null && !text.trim().isEmpty())
-			return getXMLElementString(tagname, text);
-		else
-			return "";
-	}
-
-	private String getXMLElementString(final String tagname, final String text)
-	{
-		return "<"+tagname+">" + StringEscapeUtils.escapeXml(text) + "</"+tagname+">";
 	}
 	
 	private List<DccdUser> retrieveUsers(final DccdUser requestingUser) throws UserServiceException {
