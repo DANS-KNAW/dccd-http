@@ -133,7 +133,7 @@ authentication needed
   
   - state
   
-    The 'archival' state of this projcet; either DRAFT, PUBLISHED or DELETED. 
+    The 'archival' state of this project; either DRAFT, PUBLISHED or DELETED. 
   
   - permission
     
@@ -323,7 +323,11 @@ This need authentication, you must be a registered user (member) of the DCCD, ot
 
   Returns a list of all users that are active and not admin.   
   For each user the id (a unique name) and other required properties are returned. 
+  If the requester has admin rights (role) then all users (also non-active and admin) with their roles and account state are returned. 
   
+- user/{uid} 
+  Returns the detailed user information. You can only get your own detailed information or you must have admin rights. 
+
 
 Result details
 --------------
@@ -670,11 +674,4 @@ Things that we might want are listed below.
   project/{id}/originals
 
   project/{id}/values/{format}
-
-
-* More then a GET on other resources
-
-  organisation/
-
-  user/
 
