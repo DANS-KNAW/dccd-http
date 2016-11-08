@@ -311,6 +311,27 @@ GET
 
   Returns a list of all organisations that are active. 
   For each organisation the id (a unique name) and optionally the city and or country is returned. Note that this information is also available on the webinterface without the need to be logged in. 
+  If the requester has admin rights (role) then all oragnisation (also non-active) with their account state are returned. 
+  
+  Returns
+  
+    - id
+    - city
+    - country
+    - accountState (only if admin)
+  
+- organisation/{oid} 
+  
+Returns
+  
+  same as above, but also optional
+  
+    - address
+    - postalcode
+ 
+
+
+  Returns detailed organisation information of that specific organisation. You can only get your own detailed information or you must have admin rights. 
 
 
 ## User
@@ -325,9 +346,30 @@ This need authentication, you must be a registered user (member) of the DCCD, ot
   For each user the id (a unique name) and other required properties are returned. 
   If the requester has admin rights (role) then all users (also non-active and admin) with their roles and account state are returned. 
   
+    - id
+    - displayname
+    - lastname
+    - email
+    - organisation
+    - accountState (only if admin)
+    - roles (only if admin)
+  
 - user/{uid} 
-  Returns the detailed user information. You can only get your own detailed information or you must have admin rights. 
 
+  Returns detailed user information of that specific user. You can only get your own detailed information or you must have admin rights. 
+
+  same as above, but also optional
+
+    - title
+    - initials
+    - prefixes
+    - function
+    - telephone
+    - dai
+  
+  And
+  
+    - lastLoginDate (only if admin)
 
 Result details
 --------------
