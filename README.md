@@ -322,7 +322,7 @@ GET
   
 - organisation/{oid} 
   
-Returns
+  Returns
   
   same as above, but also optional
   
@@ -357,9 +357,9 @@ This need authentication, you must be a registered user (member) of the DCCD, ot
 - user/{uid} 
 
   Returns detailed user information of that specific user. You can only get your own detailed information or you must have admin rights. 
-
+  
   same as above, but also optional
-
+  
     - title
     - initials
     - prefixes
