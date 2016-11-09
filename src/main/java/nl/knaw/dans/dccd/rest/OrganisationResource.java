@@ -77,7 +77,7 @@ public class OrganisationResource extends AbstractResource {
 	 * @return
 	 */
 	@GET
-	@Path("/{oid}/")
+	@Path("/{oid:.+}/") // ':.+' is needed to match any slashes in the organisation id
 	public Response getOrganisationByid(@PathParam("oid") String oid) {
 		// authenticate requesting user
 		DccdUser requestingUser = null;
