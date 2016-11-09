@@ -122,9 +122,10 @@ public class UserResource extends AbstractResource {
 				sw.append(XmlStringUtil.getXMLElementStringOptional("dai", user.getDigitalAuthorIdentifier()));
 				
 				// administrative
-				sw.append(XmlStringUtil.getXMLElementString("lastLoginDate", getDateTimeFormattedAsString(user.getLastLoginDate())));		
 				sw.append(XmlStringUtil.getXMLElementString("accountState", user.getState().toString())); //account state and not a location
 				sw.append(getXMLUserRolesStringOptional(user));
+				if (user.getLastLoginDate() != null) // sometimes people have not logged in at all
+					sw.append(XmlStringUtil.getXMLElementString("lastLoginDate", getDateTimeFormattedAsString(user.getLastLoginDate())));		
 
 				sw.append("</user>");
 				return responseXmlOrJson(sw.toString());
