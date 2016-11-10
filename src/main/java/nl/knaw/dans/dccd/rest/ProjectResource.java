@@ -18,6 +18,7 @@ package nl.knaw.dans.dccd.rest;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -34,11 +35,9 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import org.apache.commons.lang.StringEscapeUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
-import org.tridas.interfaces.ITridas;
 import org.tridas.schema.*;
 
 import nl.knaw.dans.common.lang.dataset.DatasetState;
@@ -58,9 +57,13 @@ import nl.knaw.dans.dccd.model.DccdAssociatedFileBinaryUnit;
 import nl.knaw.dans.dccd.model.DccdUser;
 import nl.knaw.dans.dccd.model.Project;
 import nl.knaw.dans.dccd.model.ProjectPermissionLevel;
+import nl.knaw.dans.dccd.model.DccdUser.Role;
+import nl.knaw.dans.dccd.model.ProjectPermissionMetadata;
+import nl.knaw.dans.dccd.model.UserPermission;
 import nl.knaw.dans.dccd.rest.tridas.TridasPermissionRestrictor;
 import nl.knaw.dans.dccd.rest.tridas.TridasRequestedLevelRestrictor;
 import nl.knaw.dans.dccd.rest.util.UrlConverter;
+import nl.knaw.dans.dccd.rest.util.XmlStringUtil;
 import nl.knaw.dans.dccd.search.DccdProjectSB;
 import nl.knaw.dans.dccd.search.DccdSB;
 
@@ -356,6 +359,59 @@ public class ProjectResource extends AbstractProjectResource {
 		return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 	}
 	
+	@GET
+	@Path("/{sid}/permission")
+	public Response getPermission(@PathParam("sid") String id) 
+	{
+		// authenticate user
+		DccdUser user = null;
+		try {
+			user = authenticate();
+			if (user == null)
+				return Response.status(Status.UNAUTHORIZED).build();
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+		}
+		
+		try {
+			Project project = DccdDataService.getService().getProject(id);
+
+			if (user.hasRole(Role.ADMIN) || user.getId().equals(project.getOwnerId())) 
+			{
+				ProjectPermissionMetadata permissionMetadata = project.getPermissionMetadata();
+
+				java.io.StringWriter sw = new StringWriter();
+				sw.append(XmlStringUtil.XML_INSTRUCTION_STR);
+				sw.append("<permission>");
+				sw.append(XmlStringUtil.getXMLElementString("projectId", project.getSid()));
+				sw.append(XmlStringUtil.getXMLElementString("ownerId", project.getOwnerId()));
+				sw.append(XmlStringUtil.getXMLElementString("defaultLevel", permissionMetadata.getDefaultLevel().toString()));
+
+				ArrayList<UserPermission> userPermissionsArrayList = permissionMetadata.getUserPermissionsArrayList();
+				if (!userPermissionsArrayList.isEmpty()) {
+					sw.append("<userPermissions>");
+					for (UserPermission userPermission : userPermissionsArrayList) {
+						sw.append("<userPermission>");
+						sw.append(XmlStringUtil.getXMLElementString("userId", userPermission.getUserId()));
+						sw.append(XmlStringUtil.getXMLElementString("level", userPermission.getLevel().toString()));
+						sw.append("</userPermissions>");
+					}
+					sw.append("</userPermissions>");
+				}
+				sw.append("</permission>");
+				
+				return Response.status(Status.OK).entity(sw.toString()).build();
+			} else {
+				return Response.status(Status.UNAUTHORIZED).build();
+			}
+		} catch (DataServiceException e) {
+			e.printStackTrace();
+		}
+		
+		return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+	}
+
 	/**
 	 * NOTE for searching with permission it might be needed to use the  ObjectSB, 
 	 * but we then get multiple results...
@@ -379,7 +435,7 @@ public class ProjectResource extends AbstractProjectResource {
 	 * @return A response containing the paged list of Published/Archived projects
 	 */
 	@GET
-	@Path("/")
+	//@Path("/")
 	public Response getProjects(
 			   @QueryParam(MODIFIED_FROM_PARAM) String modFromStr,
 			   @QueryParam(MODIFIED_UNTIL_PARAM) String modUntilStr,
