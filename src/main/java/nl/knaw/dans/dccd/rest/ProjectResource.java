@@ -395,7 +395,7 @@ public class ProjectResource extends AbstractProjectResource {
 						sw.append("<userPermission>");
 						sw.append(XmlStringUtil.getXMLElementString("userId", userPermission.getUserId()));
 						sw.append(XmlStringUtil.getXMLElementString("level", userPermission.getLevel().toString()));
-						sw.append("</userPermissions>");
+						sw.append("</userPermission>");
 					}
 					sw.append("</userPermissions>");
 				}
