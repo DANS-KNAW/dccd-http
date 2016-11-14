@@ -401,7 +401,7 @@ public class ProjectResource extends AbstractProjectResource {
 				}
 				sw.append("</permission>");
 				
-				return Response.status(Status.OK).entity(sw.toString()).build();
+				return responseXmlOrJson(sw.toString());
 			} else {
 				return Response.status(Status.UNAUTHORIZED).build();
 			}
