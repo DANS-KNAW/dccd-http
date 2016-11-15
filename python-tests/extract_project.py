@@ -116,7 +116,7 @@ def downloadAssociatedFile(restURL, username, password, sid, filename, output_di
 
 def downloadOriginalFile(restURL, username, password, sid, filename, output_dir):
     # print "Retrieving: " + sid + " ..."
-    r = requests.get(restURL + "/project/" + sid + "/original/" + filename, auth=HTTPBasicAuth(username, password))
+    r = requests.get(restURL + "/project/" + sid + "/originalvalues/" + filename, auth=HTTPBasicAuth(username, password))
     if r.status_code != requests.codes.ok:
         print "Error %s; could not retrieve data for id: %s" % (r.status_code, sid)
 
@@ -153,7 +153,7 @@ def downloadAssociatedFiles(restURL, username, password, projectId, output_dir):
 
 def downloadOriginalFiles(restURL, username, password, projectId, output_dir):
         headers = {'accept': 'application/json'}
-        r = requests.get(restURL + "/project/" + projectId + "/original", auth=(userName, userPasswd),
+        r = requests.get(restURL + "/project/" + projectId + "/originalvalues", auth=(userName, userPasswd),
                          headers=headers)
         if r.status_code != requests.codes.ok:
             print "Error; could not retrieve data!"
@@ -161,7 +161,7 @@ def downloadOriginalFiles(restURL, username, password, projectId, output_dir):
         else:
             originalFiles = r.json()['files']
             if originalFiles is not None:
-                orig_dir = os.path.join(output_dir, "original")
+                orig_dir = os.path.join(output_dir, "originalvalues")
                 if not os.path.exists(orig_dir):
                     os.makedirs(orig_dir)
 
@@ -170,12 +170,12 @@ def downloadOriginalFiles(restURL, username, password, projectId, output_dir):
                     # more then one
                     #print "More then one associated file"
                     for file in originalFileOrList:
-                        #print "associated file: %s" % file
+                        #print "original file: %s" % file
                         downloadOriginalFile(restURL, userName, userPasswd, projectId, file, orig_dir)
                 else:
                     # only one
                     file = originalFileOrList
-                    #print "One associated file: %s" % file
+                    #print "One original file: %s" % file
                     downloadOriginalFile(restURL, userName, userPasswd, projectId, file, orig_dir)
 
 def downloadAdministrativeData(restURL, username, password, projectId, output_dir):

@@ -365,7 +365,7 @@ public class ProjectResource extends AbstractProjectResource {
 	 * @return A response containing the complete list of original files
 	 */
 	@GET
-	@Path("/{sid}/original")
+	@Path("/{sid}/originalvalues")
 	public Response listOriginalFilesByProjectSid(@PathParam("sid") String id) {
 		// authenticate user
 		DccdUser user = null;
@@ -414,7 +414,7 @@ public class ProjectResource extends AbstractProjectResource {
 	 * @return
 	 */
 	@GET
-	@Path("/{sid}/original/{filename}")
+	@Path("/{sid}/originalvalues/{filename}")
 	public Response getOriginalFilesByProjectSid(@PathParam("sid") String id, 
 													@PathParam("filename") String filename) {
 		// authenticate user

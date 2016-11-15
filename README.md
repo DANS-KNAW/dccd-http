@@ -120,7 +120,7 @@ GET
   
   Returns the associated file
 
-- project/{sid}/original
+- project/{sid}/originalvalues
 
   authentication (but no extra permission needed)
 
@@ -128,7 +128,7 @@ GET
   
   There can be just one TRiDaS file including the original values, but there can also be other (non-TriDaS) files containing the values and those have been converted to TRiDaS at upload. 
   
-- project/{sid}/original/{filename}
+- project/{sid}/originalvalues/{filename}
 
   authentication (permission for download needed)
   
