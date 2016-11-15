@@ -77,6 +77,8 @@ GET
 - project/{sid}
 
   no authentication needed
+  
+  Returns the project's public metadata and only published/archived projects can be requested.
 
 - project/{sid}/tridas
 
@@ -84,8 +86,8 @@ GET
   
   This will download the full TRiDaS file when the user has download permission (values level). 
   
-  When there is no download permission it wil return (partial) TRiDaS with only the allowed parts. This corresponds with what can be seen on the webinterface. 
-  Notes and placeholders will be added as genericField elements with the names: dccd.incompleteTridasNote and dccd.incompleteTridas.entityPlaceholder.  
+  When there is no download permission it will return (partial) TRiDaS with only the allowed parts. This corresponds with what can be seen on the web interface. 
+  Notes and place holders will be added as genericField elements with the names: dccd.incompleteTridasNote and dccd.incompleteTridas.entityPlaceholder.  
 
 - project/{sid}/tridas/{level}
 
@@ -99,11 +101,71 @@ GET
 
 - project/{sid}/associated
 
-  authentication (permission for download needed)
+  authentication (but no extra permission needed)
 
+  Returns a list of the filenames of all associated files.
+  
+  Example: 
+  
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <files>
+        <file>report.pdf</file>
+    </files> 
+    ```
+  
 - project/{sid}/associated/{filename}
 
   authentication (permission for download needed)
+  
+  Returns the associated file
+
+- project/{sid}/original
+
+  authentication (but no extra permission needed)
+
+  Returns a list of the filenames of all original value files.
+  
+  There can be just one TRiDaS file including the original values, but there can also be other (non-TriDaS) files containing the values and those have been converted to TRiDaS at upload. 
+  
+- project/{sid}/original/{filename}
+
+  authentication (permission for download needed)
+  
+  Returns the original values file
+
+- project/{sid}/permission
+
+  authentication (you must have ADMIN role or be the owner of the project)
+  
+  Returns the projects permission information, indicating who can view or download certain information.
+  
+  Example: 
+  
+    ```
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <permission>
+      <projectId>dccd:4151</projectId>
+      <ownerId>paulboon</ownerId>
+      <defaultLevel>MINIMAL</defaultLevel>
+      <userPermissions>
+        <userPermission><userId>pwb48</userId><level>ELEMENT</level></userPermission>
+      </userPermissions>
+    </permission>
+    ```
+  
+  Permission levels:
+
+    ```
+    MINIMAL (minimal, only 'open access' public information is available)
+    PROJECT (view down to TRiDaS 'Project' entity level)
+    OBJECT (view down to TRiDaS 'Object' entity level)
+    ELEMENT (view down to TRiDaS 'Element' entity level)
+    SAMPLE (view down to TRiDaS 'Sample' entity level)
+    RADIUS (view down to TRiDaS 'Radius' entity level)
+    SERIES (view down to TRiDaS 'Series' entity level)
+    VALUES (maximal = download))
+    ```
 
 ## MyProject
 
@@ -309,7 +371,7 @@ GET
 
 - organisation/ 
 
-  Returns a list of all organisations that are active. 
+  Returns a list of all organisations. If you are not authenticated or no Admin, only the organisations that are active. 
   For each organisation the id (a unique name) and optionally the city and or country is returned. Note that this information is also available on the webinterface without the need to be logged in. 
   If the requester has admin rights (role) then all oragnisation (also non-active) with their account state are returned. 
   
@@ -319,6 +381,13 @@ GET
     - city
     - country
     - accountState (only if admin)
+    With values:
+    ```
+    REGISTERED
+    CONFIRMED_REGISTRATION
+    ACTIVE
+    BLOCKED
+    ```
   
 - organisation/{oid} 
   
@@ -353,6 +422,12 @@ This need authentication, you must be a registered user (member) of the DCCD, ot
     - organisation
     - accountState (only if admin)
     - roles (only if admin)
+      With one or more values:
+    ```
+    USER  
+    ADMIN
+    ```
+  In practice this means you have either USER or USER and ADMIN.
   
 - user/{uid} 
 

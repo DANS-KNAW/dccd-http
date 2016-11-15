@@ -4,8 +4,8 @@
 Only archived (published) projcets, no Drafts.
 
 Usage:
-    extract_dccd_project.py --pid PID -U username [-P password] [--url URL] [--dir DIR]
-    extract_dccd_project.py ( -h | --help)
+    extract_project.py --pid PID -U username [-P password] [--url URL] [--dir DIR]
+    extract_project.py ( -h | --help)
 
 Options:
     --pid PID         The project ID, like dccd:123
@@ -16,7 +16,7 @@ Options:
     -h --help         Show this screen
 
 Example:
-    ./extract_dccd_project.py --pid "dccd:594" -U dccduseradmin --url "http://localhost:1402/dccd-rest/rest"
+    ./extract_project.py --pid "dccd:594" -U dccduseradmin --url "http://localhost:1402/dccd-rest/rest"
 
 Requires:
     docopt

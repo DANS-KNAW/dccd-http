@@ -685,7 +685,6 @@ public class ProjectResource extends AbstractProjectResource {
 				return Response.status(Status.NOT_FOUND).build();
 			} else {
 				DccdSB dccdSB = searchResults.getHits().get(0).getData();
-				//return Response.status(Status.OK).entity(getProjectSearchResultAsXml(dccdSB)).build();
 				return responseXmlOrJson(getProjectSearchResultAsXml(dccdSB));
 			}
 		} catch (SearchServiceException e) {
