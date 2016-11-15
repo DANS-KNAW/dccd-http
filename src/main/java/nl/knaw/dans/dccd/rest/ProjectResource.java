@@ -54,6 +54,7 @@ import nl.knaw.dans.dccd.application.services.DccdDataService;
 import nl.knaw.dans.dccd.application.services.DccdSearchService;
 import nl.knaw.dans.dccd.application.services.SearchServiceException;
 import nl.knaw.dans.dccd.model.DccdAssociatedFileBinaryUnit;
+import nl.knaw.dans.dccd.model.DccdOriginalFileBinaryUnit;
 import nl.knaw.dans.dccd.model.DccdUser;
 import nl.knaw.dans.dccd.model.Project;
 import nl.knaw.dans.dccd.model.ProjectPermissionLevel;
@@ -277,17 +278,13 @@ public class ProjectResource extends AbstractProjectResource {
 			
 			sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
 			sw.append("<files>");
-	
 			List<DccdAssociatedFileBinaryUnit> fileBinaryUnits = project.getAssociatedFileBinaryUnits();
 			for (DccdAssociatedFileBinaryUnit unit : fileBinaryUnits) {
-				sw.append("<file>" + unit.getFileName() + "</file>");
+				sw.append(getXMLElementString("file", unit.getFileName()));
 			}
-	
 			sw.append("</files>");
 			
-			// The file bytes
-			return Response.status(Status.OK).entity(sw.toString()).build();
-			
+			return responseXmlOrJson(sw.toString());
 		} catch (DataServiceException e) {
 			e.printStackTrace();
 		}
@@ -315,7 +312,6 @@ public class ProjectResource extends AbstractProjectResource {
 			if (user == null)
 				return Response.status(Status.UNAUTHORIZED).build();
 		} catch (ServiceException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
@@ -330,6 +326,117 @@ public class ProjectResource extends AbstractProjectResource {
 			DccdAssociatedFileBinaryUnit requestedUnit = null;
 			List<DccdAssociatedFileBinaryUnit> fileBinaryUnits = project.getAssociatedFileBinaryUnits();
 			for (DccdAssociatedFileBinaryUnit unit : fileBinaryUnits) {
+				if (unit.getFileName().contentEquals(filename)) {
+					requestedUnit = unit; 
+					break; // Found!
+				}
+			}
+			if (requestedUnit == null) {
+				// not found
+				return Response.status(Status.NOT_FOUND).build();
+			} else {
+				// found
+				String unitId = requestedUnit.getUnitId();
+				// get the url
+				URL fileURL = DccdDataService.getService().getFileURL(project.getSid(), unitId);
+				
+				// NOTE we have all bytes in memory, maybe we can get circumvent it with streaming 
+				byte[] bytes = UrlConverter.toByteArray(fileURL);
+
+				// The file bytes
+				return Response.status(Status.OK).entity(bytes).build();
+			}
+		} catch (DataServiceException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+	}
+
+	/**
+	 * Produce a list in xml with the filenames, so you can request a download
+	 * normally you need to be logged in and authorized for download!
+	 * 
+	 * @param id
+	 * 			The store ID
+	 * @return A response containing the complete list of original files
+	 */
+	@GET
+	@Path("/{sid}/original")
+	public Response listOriginalFilesByProjectSid(@PathParam("sid") String id) {
+		// authenticate user
+		DccdUser user = null;
+		try {
+			user = authenticate();
+			if (user == null)
+				return Response.status(Status.UNAUTHORIZED).build();
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+		}
+		
+		try {
+			Project project = DccdDataService.getService().getProject(id);
+
+			// For listing download is not needed!
+			//if (!project.isDownloadAllowed(user) ) {
+			//	return Response.status(Status.UNAUTHORIZED).build();
+			//}
+
+			java.io.StringWriter sw = new StringWriter();
+			
+			sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
+			sw.append("<files>");
+			List<DccdOriginalFileBinaryUnit> fileBinaryUnits = project.getOriginalFileBinaryUnits();
+			for (DccdOriginalFileBinaryUnit unit : fileBinaryUnits) {
+				sw.append(getXMLElementString("file", unit.getFileName()));
+			}
+			sw.append("</files>");
+			
+			return responseXmlOrJson(sw.toString());
+		} catch (DataServiceException e) {
+			e.printStackTrace();
+		}
+		
+		return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+	}
+	
+	/**
+	 * normally you need to be logged in and authorized for download!
+	 * 
+	 * @param id
+	 * 			The store ID
+	 * @param filename
+	 * 			The name of the file to retrieve/download
+	 * @return
+	 */
+	@GET
+	@Path("/{sid}/original/{filename}")
+	public Response getOriginalFilesByProjectSid(@PathParam("sid") String id, 
+													@PathParam("filename") String filename) {
+		// authenticate user
+		DccdUser user = null;
+		try {
+			user = authenticate();
+			if (user == null)
+				return Response.status(Status.UNAUTHORIZED).build();
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+		}
+
+		try {
+			Project project = DccdDataService.getService().getProject(id);
+	
+			if (!project.isDownloadAllowed(user) ) {
+				return Response.status(Status.UNAUTHORIZED).build();
+			}
+
+			DccdOriginalFileBinaryUnit requestedUnit = null;
+			List<DccdOriginalFileBinaryUnit> fileBinaryUnits = project.getOriginalFileBinaryUnits();
+			for (DccdOriginalFileBinaryUnit unit : fileBinaryUnits) {
 				if (unit.getFileName().contentEquals(filename)) {
 					requestedUnit = unit; 
 					break; // Found!
