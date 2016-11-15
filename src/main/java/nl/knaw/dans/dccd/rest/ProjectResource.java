@@ -67,6 +67,7 @@ import nl.knaw.dans.dccd.rest.util.UrlConverter;
 import nl.knaw.dans.dccd.rest.util.XmlStringUtil;
 import nl.knaw.dans.dccd.search.DccdProjectSB;
 import nl.knaw.dans.dccd.search.DccdSB;
+import nl.knaw.dans.dccd.tridas.TridasNamespacePrefixMapper;
 
 /**
  * 
@@ -133,11 +134,11 @@ public class ProjectResource extends AbstractProjectResource {
 				jaxbContext = JAXBContext.newInstance("org.tridas.schema");
 				Marshaller marshaller = jaxbContext.createMarshaller();
 				marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-				marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);// testing
+				marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+				// improve the namespace mapping
+				marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", new TridasNamespacePrefixMapper());
+
 				marshaller.marshal(tridasProject, sw);
-				
-				// NOTE namespace is ugly, I did fix that somewhere?
-				
 			} catch (JAXBException e) {
 				e.printStackTrace();
 				return Response.status(Status.INTERNAL_SERVER_ERROR).build();
