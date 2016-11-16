@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """Extract project information and files from the DCCD archive
-Only archived (published) projcets, no Drafts.
 
 Usage:
     extract_project.py --pid PID -U username [-P password] [--url URL] [--dir DIR]
@@ -11,12 +10,12 @@ Options:
     --pid PID         The project ID, like dccd:123
     -U username       username, must be an account with admin privilege!
     -P password       Password; prompted for when not given as option
-    --url URL         The url of the EASY server, defaults to 'http://localhost:8080/dccd-rest/rest'
+    --url URL         The url of the DCCD server, defaults to 'http://localhost:8080/dccd-rest/rest'
     --dir DIR         The directory where the files are saved, defaults to './projects', note that it makes a subdir with the pid
     -h --help         Show this screen
 
 Example:
-    ./extract_project.py --pid "dccd:594" -U dccduseradmin --url "http://localhost:1402/dccd-rest/rest"
+    ./extract_dccd_project.py --pid "dccd:123" -U admintestuser --url "http://localhost:1402/dccd-rest/rest"
 
 Requires:
     docopt
@@ -29,6 +28,8 @@ import os
 from requests.auth import HTTPBasicAuth
 import getpass
 import urllib
+
+chunk_size = 4*1024*1024 # in bytes, for download
 
 def downloadProjectMetadata(restURL, username, password, sid, output_dir):
     # print "Retrieving: " + sid + " ..."
@@ -97,32 +98,38 @@ def getOwnerId(restURL, username, password, sid):
 
 def downloadTridas(restURL, username, password, sid, output_dir):
     # print "Retrieving: " + sid + " ..."
-    r = requests.get(restURL + "/project/" + sid + "/tridas", auth=HTTPBasicAuth(username, password))
+    r = requests.get(restURL + "/project/" + sid + "/tridas", auth=HTTPBasicAuth(username, password), stream=True)
     if r.status_code != requests.codes.ok:
         print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
 
     # The TRiDaS XML won't be huge, just save it
     filename = 'tridas.xml'
     with open(os.path.join(output_dir, filename), "wb") as f:
-        f.write(r.content)
+        #f.write(r.content)
+        for chunk in r.iter_content(chunk_size):
+            f.write(chunk)
 
 def downloadAssociatedFile(restURL, username, password, sid, filename, output_dir):
     # print "Retrieving: " + sid + " ..."
-    r = requests.get(restURL + "/project/" + sid + "/associated/" + urllib.quote(filename.encode('utf8')), auth=HTTPBasicAuth(username, password))
+    r = requests.get(restURL + "/project/" + sid + "/associated/" + urllib.quote(filename.encode('utf8')), auth=HTTPBasicAuth(username, password), stream=True)
     if r.status_code != requests.codes.ok:
         print "Error %s; could not retrieve data for id: %s, filename: %s, url=%s" % (r.status_code, sid, filename, r.url)
 
     with open(os.path.join(output_dir, filename), "wb") as f:
-        f.write(r.content)
+        #f.write(r.content)
+        for chunk in r.iter_content(chunk_size):
+            f.write(chunk)
 
 def downloadOriginalFile(restURL, username, password, sid, filename, output_dir):
     # print "Retrieving: " + sid + " ..."
-    r = requests.get(restURL + "/project/" + sid + "/originalvalues/" + urllib.quote(filename.encode('utf8')), auth=HTTPBasicAuth(username, password))
+    r = requests.get(restURL + "/project/" + sid + "/originalvalues/" + urllib.quote(filename.encode('utf8')), auth=HTTPBasicAuth(username, password), stream=True)
     if r.status_code != requests.codes.ok:
         print "Error %s; could not retrieve data for id: %s, filename: %s, url=%s" % (r.status_code, sid, filename, r.url)
 
     with open(os.path.join(output_dir, filename), "wb") as f:
-        f.write(r.content)
+        #f.write(r.content)
+        for chunk in r.iter_content(chunk_size):
+            f.write(chunk)
 
 def downloadAssociatedFiles(restURL, username, password, sid, output_dir):
         headers = {'accept': 'application/json'}
@@ -140,10 +147,8 @@ def downloadAssociatedFiles(restURL, username, password, sid, output_dir):
 
                 associatedFileOrList = associatedFiles['file']
                 if type(associatedFileOrList) is list:
-                    # more then one
-                    #print "More then one associated file"
+                    # more than one
                     for file in associatedFileOrList:
-                        #print "associated file: %s" % file
                         downloadAssociatedFile(restURL, username, password, sid, file, assoc_dir)
                 else:
                     # only one
@@ -168,15 +173,12 @@ def downloadOriginalFiles(restURL, username, password, sid, output_dir):
 
                 originalFileOrList = originalFiles['file']
                 if type(originalFileOrList) is list:
-                    # more then one
-                    #print "More then one associated file"
+                    # more than one
                     for file in originalFileOrList:
-                        #print "original file: %s" % file
                         downloadOriginalFile(restURL, username, password, sid, file, orig_dir)
                 else:
                     # only one
                     file = originalFileOrList
-                    #print "One original file: %s" % file
                     downloadOriginalFile(restURL, username, password, sid, file, orig_dir)
 
 def downloadAdministrativeData(restURL, username, password, sid, output_dir):
