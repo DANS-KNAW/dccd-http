@@ -671,11 +671,13 @@ public class ProjectResource extends AbstractProjectResource {
 		request.addFilterBean(DccdProjectSB.class);
 		request.addSortField(new SimpleSortField(DccdProjectSB.PID_NAME, SortOrder.ASC));
 
-		// Make sure it is published and not draft!
-		SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
-				DatasetState.PUBLISHED.toString());
-		request.addFilterQuery(stateField);
-	
+		if (!isRequestByAdmin()) {
+			// Make sure it is published and not draft!
+			SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
+					DatasetState.PUBLISHED.toString());
+			request.addFilterQuery(stateField);
+		}
+		
 		// restrict to specific sid
 		SimpleField<String> idField = new SimpleField<String>(DccdProjectSB.PID_NAME, id);
 		request.addFilterQuery(idField);
@@ -737,6 +739,19 @@ public class ProjectResource extends AbstractProjectResource {
 		appendProjectPermissionAsXml(sw, dccdSB);
 	}
 	
+	private boolean isRequestByAdmin() 
+	{
+		try {
+			DccdUser requestingUser = authenticate();
+			if (requestingUser != null && requestingUser.hasRole(Role.ADMIN) )
+				return true;
+			else
+				return false;
+		} catch (ServiceException eAuth) {
+			eAuth.printStackTrace();
+			return false; // we don't know so; false
+		}
+	}
 	
 	// TODO query and have the objects as result list, just like the GUI and a bit less than download search results
 	// therefore we could have Object title and then the project info, nothing more
