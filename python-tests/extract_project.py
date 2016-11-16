@@ -9,7 +9,7 @@ Usage:
 
 Options:
     --pid PID         The project ID, like dccd:123
-    -U username       Username, must be an account with admin privilege!
+    -U username       username, must be an account with admin privilege!
     -P password       Password; prompted for when not given as option
     --url URL         The url of the EASY server, defaults to 'http://localhost:8080/dccd-rest/rest'
     --dir DIR         The directory where the files are saved, defaults to './projects', note that it makes a subdir with the pid
@@ -28,6 +28,7 @@ import requests
 import os
 from requests.auth import HTTPBasicAuth
 import getpass
+import urllib
 
 def downloadProjectMetadata(restURL, username, password, sid, output_dir):
     # print "Retrieving: " + sid + " ..."
@@ -39,31 +40,31 @@ def downloadProjectMetadata(restURL, username, password, sid, output_dir):
     with open(os.path.join(output_dir, xmlfilename), "wb") as f:
         f.write(r.content)
 
-def downloadOrganisation(restURL, username, password, sid, output_dir):
+def downloadOrganisation(restURL, username, password, oid, output_dir):
     # print "Retrieving: " + sid + " ..."
-    r = requests.get(restURL + "/organisation/" + sid, auth=HTTPBasicAuth(username, password))
+    r = requests.get(restURL + "/organisation/" + urllib.quote(oid.encode('utf8')), auth=HTTPBasicAuth(username, password))
     if r.status_code != requests.codes.ok:
-        print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
+        print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, oid, r.url)
 
-    xmlfilename = 'organisation.xml'
-    with open(os.path.join(output_dir, xmlfilename), "wb") as f:
+    filename = 'organisation.xml'
+    with open(os.path.join(output_dir, filename), "wb") as f:
         f.write(r.content)
 
 def downloadPermission(restURL, username, password, sid, output_dir):
     # print "Retrieving: " + sid + " ..."
     r = requests.get(restURL + "/project/" + sid + "/permission", auth=HTTPBasicAuth(username, password))
     if r.status_code != requests.codes.ok:
-        print "Error %s; could not retrieve data for id: %s" % (r.status_code, sid)
+        print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
 
     xmlfilename = 'permission.xml'
     with open(os.path.join(output_dir, xmlfilename), "wb") as f:
         f.write(r.content)
 
-def downloadUser(restURL, username, password, sid, output_dir):
+def downloadUser(restURL, username, password, uid, output_dir):
     # print "Retrieving: " + sid + " ..."
-    r = requests.get(restURL + "/user/" + sid, auth=HTTPBasicAuth(username, password))
+    r = requests.get(restURL + "/user/" + uid, auth=HTTPBasicAuth(username, password))
     if r.status_code != requests.codes.ok:
-        print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
+        print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, uid, r.url)
 
     xmlfilename = 'user.xml'
     with open(os.path.join(output_dir, xmlfilename), "wb") as f:
@@ -72,9 +73,9 @@ def downloadUser(restURL, username, password, sid, output_dir):
 def getOwnerOrganisationId(restURL, username, password, sid):
     # get project info needed for downloading
     headers = {'accept': 'application/json'}
-    r = requests.get(restURL + "/project/" + projectId, auth=(userName, userPasswd), headers=headers)
+    r = requests.get(restURL + "/project/" + sid, auth=(username, password), headers=headers)
     if r.status_code != requests.codes.ok:
-        print "Error; could not retrieve data!"
+        print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
         print "Status: " + str(r.status_code) + "; response: " + r.text
     else:
         project = r.json()['project']
@@ -84,10 +85,10 @@ def getOwnerOrganisationId(restURL, username, password, sid):
 def getOwnerId(restURL, username, password, sid):
     # get permission info and extract user ID
     headers = {'accept': 'application/json'}
-    r = requests.get(restURL + "/project/" + projectId + "/permission", auth=(userName, userPasswd),
+    r = requests.get(restURL + "/project/" + sid + "/permission", auth=(username, password),
                      headers=headers)
     if r.status_code != requests.codes.ok:
-        print "Error; could not retrieve data!"
+        print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
         print "Status: " + str(r.status_code) + "; response: " + r.text
     else:
         project = r.json()['permission']
@@ -98,37 +99,37 @@ def downloadTridas(restURL, username, password, sid, output_dir):
     # print "Retrieving: " + sid + " ..."
     r = requests.get(restURL + "/project/" + sid + "/tridas", auth=HTTPBasicAuth(username, password))
     if r.status_code != requests.codes.ok:
-        print "Error %s; could not retrieve data for id: %s" % (r.status_code, sid)
+        print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
 
     # The TRiDaS XML won't be huge, just save it
-    xmlfilename = 'tridas.xml'
-    with open(os.path.join(output_dir, xmlfilename), "wb") as f:
+    filename = 'tridas.xml'
+    with open(os.path.join(output_dir, filename), "wb") as f:
         f.write(r.content)
 
 def downloadAssociatedFile(restURL, username, password, sid, filename, output_dir):
     # print "Retrieving: " + sid + " ..."
-    r = requests.get(restURL + "/project/" + sid + "/associated/" + filename, auth=HTTPBasicAuth(username, password))
+    r = requests.get(restURL + "/project/" + sid + "/associated/" + urllib.quote(filename.encode('utf8')), auth=HTTPBasicAuth(username, password))
     if r.status_code != requests.codes.ok:
-        print "Error %s; could not retrieve data for id: %s" % (r.status_code, sid)
+        print "Error %s; could not retrieve data for id: %s, filename: %s, url=%s" % (r.status_code, sid, filename, r.url)
 
     with open(os.path.join(output_dir, filename), "wb") as f:
         f.write(r.content)
 
 def downloadOriginalFile(restURL, username, password, sid, filename, output_dir):
     # print "Retrieving: " + sid + " ..."
-    r = requests.get(restURL + "/project/" + sid + "/originalvalues/" + filename, auth=HTTPBasicAuth(username, password))
+    r = requests.get(restURL + "/project/" + sid + "/originalvalues/" + urllib.quote(filename.encode('utf8')), auth=HTTPBasicAuth(username, password))
     if r.status_code != requests.codes.ok:
-        print "Error %s; could not retrieve data for id: %s" % (r.status_code, sid)
+        print "Error %s; could not retrieve data for id: %s, filename: %s, url=%s" % (r.status_code, sid, filename, r.url)
 
     with open(os.path.join(output_dir, filename), "wb") as f:
         f.write(r.content)
 
-def downloadAssociatedFiles(restURL, username, password, projectId, output_dir):
+def downloadAssociatedFiles(restURL, username, password, sid, output_dir):
         headers = {'accept': 'application/json'}
-        r = requests.get(restURL + "/project/" + projectId + "/associated", auth=(userName, userPasswd),
+        r = requests.get(restURL + "/project/" + sid + "/associated", auth=(username, password),
                          headers=headers)
         if r.status_code != requests.codes.ok:
-            print "Error; could not retrieve data!"
+            print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
             print "Status: " + str(r.status_code) + "; response: " + r.text
         else:
             associatedFiles = r.json()['files']
@@ -143,20 +144,20 @@ def downloadAssociatedFiles(restURL, username, password, projectId, output_dir):
                     #print "More then one associated file"
                     for file in associatedFileOrList:
                         #print "associated file: %s" % file
-                        downloadAssociatedFile(restURL, userName, userPasswd, projectId, file, assoc_dir)
+                        downloadAssociatedFile(restURL, username, password, sid, file, assoc_dir)
                 else:
                     # only one
                     file = associatedFileOrList
                     #print "One associated file: %s" % file
-                    downloadAssociatedFile(restURL, userName, userPasswd, projectId, file, assoc_dir)
+                    downloadAssociatedFile(restURL, username, password, sid, file, assoc_dir)
 
 
-def downloadOriginalFiles(restURL, username, password, projectId, output_dir):
+def downloadOriginalFiles(restURL, username, password, sid, output_dir):
         headers = {'accept': 'application/json'}
-        r = requests.get(restURL + "/project/" + projectId + "/originalvalues", auth=(userName, userPasswd),
+        r = requests.get(restURL + "/project/" + sid + "/originalvalues", auth=(username, password),
                          headers=headers)
         if r.status_code != requests.codes.ok:
-            print "Error; could not retrieve data!"
+            print "Error %s; could not retrieve data for id: %s, url=%s" % (r.status_code, sid, r.url)
             print "Status: " + str(r.status_code) + "; response: " + r.text
         else:
             originalFiles = r.json()['files']
@@ -171,35 +172,35 @@ def downloadOriginalFiles(restURL, username, password, projectId, output_dir):
                     #print "More then one associated file"
                     for file in originalFileOrList:
                         #print "original file: %s" % file
-                        downloadOriginalFile(restURL, userName, userPasswd, projectId, file, orig_dir)
+                        downloadOriginalFile(restURL, username, password, sid, file, orig_dir)
                 else:
                     # only one
                     file = originalFileOrList
                     #print "One original file: %s" % file
-                    downloadOriginalFile(restURL, userName, userPasswd, projectId, file, orig_dir)
+                    downloadOriginalFile(restURL, username, password, sid, file, orig_dir)
 
-def downloadAdministrativeData(restURL, username, password, projectId, output_dir):
+def downloadAdministrativeData(restURL, username, password, sid, output_dir):
         admin_dir = os.path.join(output_dir, "administrative")
         if not os.path.exists(admin_dir):
             os.makedirs(admin_dir)
 
-        downloadProjectMetadata(restURL, userName, userPasswd, projectId, admin_dir)
-        organisationId = getOwnerOrganisationId(restURL, userName, userPasswd, projectId)
-        downloadOrganisation(restURL, userName, userPasswd, organisationId, admin_dir)
+        downloadProjectMetadata(restURL, username, password, sid, admin_dir)
+        organisationId = getOwnerOrganisationId(restURL, username, password, sid)
+        downloadOrganisation(restURL, username, password, organisationId, admin_dir)
 
-        downloadPermission(restURL, userName, userPasswd, projectId, admin_dir)
-        ownerId = getOwnerId(restURL, userName, userPasswd, projectId)
-        downloadUser(restURL, userName, userPasswd, ownerId, admin_dir)
+        downloadPermission(restURL, username, password, sid, admin_dir)
+        ownerId = getOwnerId(restURL, username, password, sid)
+        downloadUser(restURL, username, password, ownerId, admin_dir)
 
-def extractProject(restURL, username, password, projectId, extractionDir):
-        output_dir = os.path.join(extractionDir, projectId.replace(":", '_'))
+def extractProject(restURL, username, password, sid, extractionDir):
+        output_dir = os.path.join(extractionDir, sid.replace(":", '_'))
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
-        downloadTridas(restURL, userName, userPasswd, projectId, output_dir)
-        downloadAdministrativeData(restURL, userName, userPasswd, projectId, output_dir)
-        downloadAssociatedFiles(restURL, userName, userPasswd, projectId, output_dir)
-        downloadOriginalFiles(restURL, userName, userPasswd, projectId, output_dir)
+        downloadTridas(restURL, username, password, sid, output_dir)
+        downloadAdministrativeData(restURL, username, password, sid, output_dir)
+        downloadAssociatedFiles(restURL, username, password, sid, output_dir)
+        downloadOriginalFiles(restURL, username, password, sid, output_dir)
 
 if __name__ == '__main__':
     try:
@@ -218,19 +219,19 @@ if __name__ == '__main__':
             restURL = arguments["--url"]
 
         if arguments["--pid"]:
-            projectId = arguments["--pid"]
+            sid = arguments["--pid"]
 
         if arguments["-U"]:
-            userName = arguments["-U"]
+            username = arguments["-U"]
 
         if arguments["-P"]:
-            userPasswd = arguments["-P"]
+            password = arguments["-P"]
         else:
-            userPasswd = getpass.getpass()
+            password = getpass.getpass()
 
-        print "Extracting: %s by: %s from: %s" % (projectId, userName, restURL)
+        print "Extracting: %s by: %s from: %s" % (sid, username, restURL)
         print "Saving in: " + extractionDir
-        extractProject(restURL, userName, userPasswd, projectId, extractionDir)
+        extractProject(restURL, username, password, sid, extractionDir)
         print "Done."
 
     # invalid options
