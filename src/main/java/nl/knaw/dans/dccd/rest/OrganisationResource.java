@@ -124,18 +124,5 @@ public class OrganisationResource extends AbstractResource {
 		else 
 			return false;
 	}
-	
-	private boolean isRequestByAdmin() 
-	{
-		try {
-			DccdUser requestingUser = authenticate();
-			if (requestingUser != null && requestingUser.hasRole(Role.ADMIN) )
-				return true;
-			else
-				return false;
-		} catch (ServiceException eAuth) {
-			eAuth.printStackTrace();
-			return false; // we don't know so; false
-		}
-	}
+
 }
