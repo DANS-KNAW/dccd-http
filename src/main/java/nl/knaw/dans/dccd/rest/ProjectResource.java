@@ -54,6 +54,7 @@ import nl.knaw.dans.dccd.application.services.DccdDataService;
 import nl.knaw.dans.dccd.application.services.DccdSearchService;
 import nl.knaw.dans.dccd.application.services.SearchServiceException;
 import nl.knaw.dans.dccd.model.DccdAssociatedFileBinaryUnit;
+import nl.knaw.dans.dccd.model.DccdOriginalFileBinaryUnit;
 import nl.knaw.dans.dccd.model.DccdUser;
 import nl.knaw.dans.dccd.model.Project;
 import nl.knaw.dans.dccd.model.ProjectPermissionLevel;
@@ -66,6 +67,7 @@ import nl.knaw.dans.dccd.rest.util.UrlConverter;
 import nl.knaw.dans.dccd.rest.util.XmlStringUtil;
 import nl.knaw.dans.dccd.search.DccdProjectSB;
 import nl.knaw.dans.dccd.search.DccdSB;
+import nl.knaw.dans.dccd.tridas.TridasNamespacePrefixMapper;
 
 /**
  * 
@@ -132,11 +134,11 @@ public class ProjectResource extends AbstractProjectResource {
 				jaxbContext = JAXBContext.newInstance("org.tridas.schema");
 				Marshaller marshaller = jaxbContext.createMarshaller();
 				marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-				marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);// testing
+				marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+				// improve the namespace mapping
+				marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", new TridasNamespacePrefixMapper());
+
 				marshaller.marshal(tridasProject, sw);
-				
-				// NOTE namespace is ugly, I did fix that somewhere?
-				
 			} catch (JAXBException e) {
 				e.printStackTrace();
 				return Response.status(Status.INTERNAL_SERVER_ERROR).build();
@@ -277,17 +279,13 @@ public class ProjectResource extends AbstractProjectResource {
 			
 			sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
 			sw.append("<files>");
-	
 			List<DccdAssociatedFileBinaryUnit> fileBinaryUnits = project.getAssociatedFileBinaryUnits();
 			for (DccdAssociatedFileBinaryUnit unit : fileBinaryUnits) {
-				sw.append("<file>" + unit.getFileName() + "</file>");
+				sw.append(getXMLElementString("file", unit.getFileName()));
 			}
-	
 			sw.append("</files>");
 			
-			// The file bytes
-			return Response.status(Status.OK).entity(sw.toString()).build();
-			
+			return responseXmlOrJson(sw.toString());
 		} catch (DataServiceException e) {
 			e.printStackTrace();
 		}
@@ -315,7 +313,6 @@ public class ProjectResource extends AbstractProjectResource {
 			if (user == null)
 				return Response.status(Status.UNAUTHORIZED).build();
 		} catch (ServiceException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
@@ -330,6 +327,117 @@ public class ProjectResource extends AbstractProjectResource {
 			DccdAssociatedFileBinaryUnit requestedUnit = null;
 			List<DccdAssociatedFileBinaryUnit> fileBinaryUnits = project.getAssociatedFileBinaryUnits();
 			for (DccdAssociatedFileBinaryUnit unit : fileBinaryUnits) {
+				if (unit.getFileName().contentEquals(filename)) {
+					requestedUnit = unit; 
+					break; // Found!
+				}
+			}
+			if (requestedUnit == null) {
+				// not found
+				return Response.status(Status.NOT_FOUND).build();
+			} else {
+				// found
+				String unitId = requestedUnit.getUnitId();
+				// get the url
+				URL fileURL = DccdDataService.getService().getFileURL(project.getSid(), unitId);
+				
+				// NOTE we have all bytes in memory, maybe we can get circumvent it with streaming 
+				byte[] bytes = UrlConverter.toByteArray(fileURL);
+
+				// The file bytes
+				return Response.status(Status.OK).entity(bytes).build();
+			}
+		} catch (DataServiceException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+	}
+
+	/**
+	 * Produce a list in xml with the filenames, so you can request a download
+	 * normally you need to be logged in and authorized for download!
+	 * 
+	 * @param id
+	 * 			The store ID
+	 * @return A response containing the complete list of original files
+	 */
+	@GET
+	@Path("/{sid}/originalvalues")
+	public Response listOriginalFilesByProjectSid(@PathParam("sid") String id) {
+		// authenticate user
+		DccdUser user = null;
+		try {
+			user = authenticate();
+			if (user == null)
+				return Response.status(Status.UNAUTHORIZED).build();
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+		}
+		
+		try {
+			Project project = DccdDataService.getService().getProject(id);
+
+			// For listing download is not needed!
+			//if (!project.isDownloadAllowed(user) ) {
+			//	return Response.status(Status.UNAUTHORIZED).build();
+			//}
+
+			java.io.StringWriter sw = new StringWriter();
+			
+			sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
+			sw.append("<files>");
+			List<DccdOriginalFileBinaryUnit> fileBinaryUnits = project.getOriginalFileBinaryUnits();
+			for (DccdOriginalFileBinaryUnit unit : fileBinaryUnits) {
+				sw.append(getXMLElementString("file", unit.getFileName()));
+			}
+			sw.append("</files>");
+			
+			return responseXmlOrJson(sw.toString());
+		} catch (DataServiceException e) {
+			e.printStackTrace();
+		}
+		
+		return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+	}
+	
+	/**
+	 * normally you need to be logged in and authorized for download!
+	 * 
+	 * @param id
+	 * 			The store ID
+	 * @param filename
+	 * 			The name of the file to retrieve/download
+	 * @return
+	 */
+	@GET
+	@Path("/{sid}/originalvalues/{filename}")
+	public Response getOriginalFilesByProjectSid(@PathParam("sid") String id, 
+													@PathParam("filename") String filename) {
+		// authenticate user
+		DccdUser user = null;
+		try {
+			user = authenticate();
+			if (user == null)
+				return Response.status(Status.UNAUTHORIZED).build();
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+		}
+
+		try {
+			Project project = DccdDataService.getService().getProject(id);
+	
+			if (!project.isDownloadAllowed(user) ) {
+				return Response.status(Status.UNAUTHORIZED).build();
+			}
+
+			DccdOriginalFileBinaryUnit requestedUnit = null;
+			List<DccdOriginalFileBinaryUnit> fileBinaryUnits = project.getOriginalFileBinaryUnits();
+			for (DccdOriginalFileBinaryUnit unit : fileBinaryUnits) {
 				if (unit.getFileName().contentEquals(filename)) {
 					requestedUnit = unit; 
 					break; // Found!
@@ -563,11 +671,13 @@ public class ProjectResource extends AbstractProjectResource {
 		request.addFilterBean(DccdProjectSB.class);
 		request.addSortField(new SimpleSortField(DccdProjectSB.PID_NAME, SortOrder.ASC));
 
-		// Make sure it is published and not draft!
-		SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
-				DatasetState.PUBLISHED.toString());
-		request.addFilterQuery(stateField);
-	
+		if (!isRequestByAdmin()) {
+			// Make sure it is published and not draft!
+			SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
+					DatasetState.PUBLISHED.toString());
+			request.addFilterQuery(stateField);
+		}
+		
 		// restrict to specific sid
 		SimpleField<String> idField = new SimpleField<String>(DccdProjectSB.PID_NAME, id);
 		request.addFilterQuery(idField);
@@ -578,7 +688,6 @@ public class ProjectResource extends AbstractProjectResource {
 				return Response.status(Status.NOT_FOUND).build();
 			} else {
 				DccdSB dccdSB = searchResults.getHits().get(0).getData();
-				//return Response.status(Status.OK).entity(getProjectSearchResultAsXml(dccdSB)).build();
 				return responseXmlOrJson(getProjectSearchResultAsXml(dccdSB));
 			}
 		} catch (SearchServiceException e) {
@@ -630,6 +739,19 @@ public class ProjectResource extends AbstractProjectResource {
 		appendProjectPermissionAsXml(sw, dccdSB);
 	}
 	
+	private boolean isRequestByAdmin() 
+	{
+		try {
+			DccdUser requestingUser = authenticate();
+			if (requestingUser != null && requestingUser.hasRole(Role.ADMIN) )
+				return true;
+			else
+				return false;
+		} catch (ServiceException eAuth) {
+			eAuth.printStackTrace();
+			return false; // we don't know so; false
+		}
+	}
 	
 	// TODO query and have the objects as result list, just like the GUI and a bit less than download search results
 	// therefore we could have Object title and then the project info, nothing more
