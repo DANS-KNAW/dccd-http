@@ -37,6 +37,7 @@ import nl.knaw.dans.common.lang.util.Range;
 import nl.knaw.dans.dccd.application.services.DccdSearchService;
 import nl.knaw.dans.dccd.application.services.SearchServiceException;
 import nl.knaw.dans.dccd.model.DccdUser;
+import nl.knaw.dans.dccd.rest.util.XmlStringUtil;
 import nl.knaw.dans.dccd.search.DccdObjectSB;
 import nl.knaw.dans.dccd.search.DccdProjectSB;
 import nl.knaw.dans.dccd.search.DccdSB;
@@ -285,7 +286,7 @@ public class ProjectObjectResource extends AbstractProjectResource {
 	 *            search result
 	 */
 	@Override
-	protected void appendSearchResultDataAsXml(StringWriter sw, DccdSB dccdSB, DccdUser user) {
+	protected void appendSearchResultDataAsXml(StringWriter sw, DccdSB dccdSB, DccdUser requestingUser) {
 		// store id for the TRiDaS Object datastream
 		sw.append(getXMLElementString("sid", dccdSB.getId()));
 		sw.append(getXMLElementString("title", getObjectTitleString(dccdSB)));
@@ -306,6 +307,10 @@ public class ProjectObjectResource extends AbstractProjectResource {
 		
 		// permission
 		appendProjectPermissionAsXml(sw, dccdSB);
+		
+		if (isAdmin(requestingUser)) {
+			sw.append(XmlStringUtil.getXMLElementString("state", dccdSB.getAdministrativeState().toString()));
+		}
 
 		sw.append("</project>");
 	}

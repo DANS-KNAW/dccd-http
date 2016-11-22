@@ -685,7 +685,7 @@ public class ProjectResource extends AbstractProjectResource {
 			e1.printStackTrace();
 		}
 
-		if (isAdmin(requestingUser)) {
+		if (!isAdmin(requestingUser)) {
 			// Make sure it is published and not draft!
 			SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
 					DatasetState.PUBLISHED.toString());

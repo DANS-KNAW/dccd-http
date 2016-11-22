@@ -55,6 +55,7 @@ import nl.knaw.dans.dccd.model.DccdUser;
 import nl.knaw.dans.dccd.model.Project;
 import nl.knaw.dans.dccd.rest.archival.FileExtractor;
 import nl.knaw.dans.dccd.rest.archival.DccdProjectImporter;
+import nl.knaw.dans.dccd.rest.util.XmlStringUtil;
 import nl.knaw.dans.dccd.search.DccdProjectSB;
 import nl.knaw.dans.dccd.search.DccdSB;
 
@@ -287,7 +288,7 @@ public class MyProjectResource extends AbstractProjectResource {
 	 * @param dccdSB
 	 *            search result
 	 */
-	protected void appendSearchResultDataAsXml(java.io.StringWriter sw, DccdSB dccdSB, DccdUser user) {
+	protected void appendSearchResultDataAsXml(java.io.StringWriter sw, DccdSB dccdSB, DccdUser requestingUser) {
 		appendProjectPublicDataAsXml(sw, dccdSB);
 		
 		// status is interesting for MyProjects
@@ -295,6 +296,10 @@ public class MyProjectResource extends AbstractProjectResource {
 		
 		// permission
 		appendProjectPermissionAsXml(sw, dccdSB);
+		
+		if (isAdmin(requestingUser)) {
+			sw.append(XmlStringUtil.getXMLElementString("state", dccdSB.getAdministrativeState().toString()));
+		}
 		
 		// always show location; it's our own data!
 		appendProjectLocationAsXml(sw, dccdSB);
