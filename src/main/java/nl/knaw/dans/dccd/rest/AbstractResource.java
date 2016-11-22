@@ -214,15 +214,18 @@ public abstract class AbstractResource {
 	{
 		try {
 			DccdUser requestingUser = authenticate();
-			if (isAdmin(requestingUser))
-				return true;
-			else
-				return false;
+			return isAdmin(requestingUser);
 		} catch (ServiceException eAuth) {
 			eAuth.printStackTrace();
 			return false; // we don't know so; false
 		}
 	}
+
+	/**
+	 * Determine if the user has Admin rights/role
+	 * 
+	 * @return True if admin, false otherwise (note that this is also when not authenticated)
+	 */
 	protected boolean isAdmin(final DccdUser user)
 	{
 		// Note that for null we have an anonymous user, with no prove of admin rights
