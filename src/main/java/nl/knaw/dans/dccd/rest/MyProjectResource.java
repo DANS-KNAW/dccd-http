@@ -55,6 +55,7 @@ import nl.knaw.dans.dccd.model.DccdUser;
 import nl.knaw.dans.dccd.model.Project;
 import nl.knaw.dans.dccd.rest.archival.FileExtractor;
 import nl.knaw.dans.dccd.rest.archival.DccdProjectImporter;
+import nl.knaw.dans.dccd.rest.util.XmlStringUtil;
 import nl.knaw.dans.dccd.search.DccdProjectSB;
 import nl.knaw.dans.dccd.search.DccdSB;
 
@@ -102,7 +103,7 @@ public class MyProjectResource extends AbstractProjectResource {
 	 * curl -u normaltestuser:testtest -i -F file=@test.pdf http://localhost:8080/dccd-rest/rest/myproject
 	 */
 	@POST
-	@Path("/")
+	//@Path("/")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response uploadFile(
 		@FormDataParam("file") InputStream uploadedInputStream
@@ -164,7 +165,7 @@ public class MyProjectResource extends AbstractProjectResource {
 	 * @return
 	 */
 	@GET
-	@Path("/")
+	//@Path("/")
 	public Response getProjects(
 	           @QueryParam(OFFSET_PARAM) @DefaultValue("0") int offset,
 	           @QueryParam(LIMIT_PARAM) @DefaultValue("" + DEFAULT_LIST_LIMIT) int limit) {
@@ -202,7 +203,7 @@ public class MyProjectResource extends AbstractProjectResource {
 			//return Response.status(Status.OK)
 			//		.entity(getProjectListSearchResultAsXml(searchResults, offset, limit))
 			//		.build();
-			return responseXmlOrJson(getProjectListSearchResultAsXml(searchResults, offset, limit));
+			return responseXmlOrJson(getProjectListSearchResultAsXml(searchResults, offset, limit, user));
 		} catch (SearchServiceException e) {
 			e.printStackTrace();
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
@@ -253,7 +254,7 @@ public class MyProjectResource extends AbstractProjectResource {
 			} else {
 				DccdSB dccdSB = searchResults.getHits().get(0).getData();
 				//return Response.status(Status.OK).entity(getProjectSearchResultAsXml(dccdSB)).build();
-				return responseXmlOrJson(getProjectSearchResultAsXml(dccdSB));
+				return responseXmlOrJson(getProjectSearchResultAsXml(dccdSB, user));
 			}
 		} catch (SearchServiceException e) {
 			e.printStackTrace();
@@ -268,12 +269,12 @@ public class MyProjectResource extends AbstractProjectResource {
 	 * @param dccdSB
 	 *            search result
 	 */
-	private String getProjectSearchResultAsXml(DccdSB dccdSB) {
+	private String getProjectSearchResultAsXml(DccdSB dccdSB, DccdUser user) {
 		java.io.StringWriter sw = new StringWriter();
 		
 		sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
 		sw.append("<project>");
-		appendSearchResultDataAsXml(sw, dccdSB);
+		appendSearchResultDataAsXml(sw, dccdSB, user);
 		sw.append("</project>");
 
 		return sw.toString();
@@ -287,7 +288,7 @@ public class MyProjectResource extends AbstractProjectResource {
 	 * @param dccdSB
 	 *            search result
 	 */
-	protected void appendSearchResultDataAsXml(java.io.StringWriter sw, DccdSB dccdSB) {
+	protected void appendSearchResultDataAsXml(java.io.StringWriter sw, DccdSB dccdSB, DccdUser requestingUser) {
 		appendProjectPublicDataAsXml(sw, dccdSB);
 		
 		// status is interesting for MyProjects
@@ -295,6 +296,10 @@ public class MyProjectResource extends AbstractProjectResource {
 		
 		// permission
 		appendProjectPermissionAsXml(sw, dccdSB);
+		
+		if (isAdmin(requestingUser)) {
+			sw.append(XmlStringUtil.getXMLElementString("state", dccdSB.getAdministrativeState().toString()));
+		}
 		
 		// always show location; it's our own data!
 		appendProjectLocationAsXml(sw, dccdSB);
@@ -401,7 +406,7 @@ public class MyProjectResource extends AbstractProjectResource {
 		
 		try {
 			searchResults = DccdSearchService.getService().doSearch(request);
-			return responseXmlOrJson(getProjectListSearchResultAsXml(searchResults, offset, limit));
+			return responseXmlOrJson(getProjectListSearchResultAsXml(searchResults, offset, limit, user));
 		} catch (SearchServiceException e) {
 			e.printStackTrace();
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();

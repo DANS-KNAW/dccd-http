@@ -37,6 +37,7 @@ import nl.knaw.dans.common.lang.util.Range;
 import nl.knaw.dans.dccd.application.services.DccdSearchService;
 import nl.knaw.dans.dccd.application.services.SearchServiceException;
 import nl.knaw.dans.dccd.model.DccdUser;
+import nl.knaw.dans.dccd.rest.util.XmlStringUtil;
 import nl.knaw.dans.dccd.search.DccdObjectSB;
 import nl.knaw.dans.dccd.search.DccdProjectSB;
 import nl.knaw.dans.dccd.search.DccdSB;
@@ -75,6 +76,7 @@ public class ProjectObjectResource extends AbstractProjectResource {
 	 * @param limit A response containing the paged list of results
 	 * @return
 	 */
+	@SuppressWarnings("serial")
 	@GET
 	@Path("/query")
 	public Response getProjectsByQuery(
@@ -127,11 +129,18 @@ public class ProjectObjectResource extends AbstractProjectResource {
 		request.addFilterBean(DccdObjectSB.class);
 		//request.addSortField(new SimpleSortField(DccdProjectSB.PID_NAME, SortOrder.ASC));
 	
-		// Make sure it is published and not draft!
-		SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
-				DatasetState.PUBLISHED.toString());
-		request.addFilterQuery(stateField);
-
+		DccdUser requestingUser=null;
+		try {
+			requestingUser = authenticate();
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
+		}
+		if (!isAdmin(requestingUser)) {
+			// Make sure it is published and not draft!
+			SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
+					DatasetState.PUBLISHED.toString());
+			request.addFilterQuery(stateField);
+		}
 		
 		// project fields
 		addCombinedOptionalFieldParameterToRequest(request, new CombinedOptionalField<String>(new ArrayList<String>(){{
@@ -172,7 +181,7 @@ public class ProjectObjectResource extends AbstractProjectResource {
 		
 		try {
 			searchResults = DccdSearchService.getService().doSearch(request);
-			return responseXmlOrJson(getProjectListSearchResultAsXml(searchResults, offset, limit));
+			return responseXmlOrJson(getProjectListSearchResultAsXml(searchResults, offset, limit, requestingUser));
 		} catch (SearchServiceException e) {
 			e.printStackTrace();
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
@@ -247,7 +256,7 @@ public class ProjectObjectResource extends AbstractProjectResource {
 	}
 		
 	protected String getObjectListSearchResultAsXml(SearchResult<? extends DccdSB> searchResults, 
-			int offset, int limit) {
+			int offset, int limit, DccdUser user) {
 		java.io.StringWriter sw = new StringWriter();
 		
 		sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
@@ -260,7 +269,7 @@ public class ProjectObjectResource extends AbstractProjectResource {
 		
 		for (SearchHit<? extends DccdSB> hit: searchResults.getHits()) {
 			sw.append("<object>");
-			appendSearchResultDataAsXml(sw, hit.getData());
+			appendSearchResultDataAsXml(sw, hit.getData(), user);
 			sw.append("</object>");
 		}
 		sw.append("</objects>");
@@ -277,7 +286,7 @@ public class ProjectObjectResource extends AbstractProjectResource {
 	 *            search result
 	 */
 	@Override
-	protected void appendSearchResultDataAsXml(StringWriter sw, DccdSB dccdSB) {
+	protected void appendSearchResultDataAsXml(StringWriter sw, DccdSB dccdSB, DccdUser requestingUser) {
 		// store id for the TRiDaS Object datastream
 		sw.append(getXMLElementString("sid", dccdSB.getId()));
 		sw.append(getXMLElementString("title", getObjectTitleString(dccdSB)));
@@ -298,6 +307,10 @@ public class ProjectObjectResource extends AbstractProjectResource {
 		
 		// permission
 		appendProjectPermissionAsXml(sw, dccdSB);
+		
+		if (isAdmin(requestingUser)) {
+			sw.append(XmlStringUtil.getXMLElementString("state", dccdSB.getAdministrativeState().toString()));
+		}
 
 		sw.append("</project>");
 	}

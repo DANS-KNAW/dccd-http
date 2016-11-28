@@ -34,12 +34,10 @@ import nl.knaw.dans.dccd.model.ProjectPermissionLevel;
 import nl.knaw.dans.dccd.search.DccdSB;
 import nl.knaw.dans.dccd.util.StringUtil;
 
-import nl.knaw.dans.common.lang.service.exceptions.ServiceException;
 import nl.knaw.dans.dccd.application.services.DataServiceException;
 import nl.knaw.dans.dccd.application.services.DccdDataService;
 import nl.knaw.dans.dccd.application.services.DccdUserService;
 import nl.knaw.dans.dccd.application.services.UserServiceException;
-import nl.knaw.dans.dccd.model.DccdOrganisation;
 import nl.knaw.dans.dccd.model.DccdUser;
 import nl.knaw.dans.dccd.model.Project;
 
@@ -88,7 +86,7 @@ public abstract class AbstractProjectResource extends AbstractResource {
 	 * @return The XML String
 	 */
 	protected String getProjectListSearchResultAsXml(
-			SearchResult<? extends DccdSB> searchResults, int offset, int limit) {
+			SearchResult<? extends DccdSB> searchResults, int offset, int limit, DccdUser requestingUser) {
 		java.io.StringWriter sw = new StringWriter();
 
 		sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML
@@ -99,7 +97,7 @@ public abstract class AbstractProjectResource extends AbstractResource {
 
 		for (SearchHit<? extends DccdSB> hit : searchResults.getHits()) {
 			sw.append("<project>");
-			appendSearchResultDataAsXml(sw, hit.getData());
+			appendSearchResultDataAsXml(sw, hit.getData(), requestingUser);
 			sw.append("</project>");
 		}
 		sw.append("</projects>");
@@ -116,7 +114,7 @@ public abstract class AbstractProjectResource extends AbstractResource {
 	 *            search result
 	 */
 	protected abstract void appendSearchResultDataAsXml(
-			java.io.StringWriter sw, DccdSB dccdSB);
+			java.io.StringWriter sw, DccdSB dccdSB, DccdUser requestingUser);
 
 	// TODO strings need to be escaped for xml, maybe use a lib for constructing
 	// xml

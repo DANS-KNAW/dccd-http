@@ -32,6 +32,7 @@ import nl.knaw.dans.common.lang.service.exceptions.ServiceException;
 import nl.knaw.dans.dccd.application.services.DccdUserService;
 import nl.knaw.dans.dccd.authn.UsernamePasswordAuthentication;
 import nl.knaw.dans.dccd.model.DccdUser;
+import nl.knaw.dans.dccd.model.DccdUser.Role;
 import nl.knaw.dans.dccd.rest.util.XmlToJsonConverter;
 
 import com.sun.jersey.core.util.Base64;
@@ -202,5 +203,32 @@ public abstract class AbstractResource {
 			}
 		}
 		return user;
+	}
+	
+	/**
+	 * Determine if the request is done by a user with Admin rights/role
+	 * 
+	 * @return True if request is done by admin, false otherwise (note that this is also when not authenticated)
+	 */
+	protected boolean isRequestByAdmin() 
+	{
+		try {
+			DccdUser requestingUser = authenticate();
+			return isAdmin(requestingUser);
+		} catch (ServiceException eAuth) {
+			eAuth.printStackTrace();
+			return false; // we don't know so; false
+		}
+	}
+
+	/**
+	 * Determine if the user has Admin rights/role
+	 * 
+	 * @return True if admin, false otherwise (note that this is also when not authenticated)
+	 */
+	protected boolean isAdmin(final DccdUser user)
+	{
+		// Note that for null we have an anonymous user, with no prove of admin rights
+		return (user != null && user.hasRole(Role.ADMIN));
 	}
 }

@@ -195,7 +195,7 @@ authentication needed
   
   - state
   
-    The 'archival' state of this project; either DRAFT, PUBLISHED or DELETED. 
+    The 'archival' state of this project; either DRAFT or PUBLISHED. 
   
   - permission
     
@@ -634,6 +634,15 @@ research of a particular object or group of objects."
    Example: 
    
        <description></description>
+
+When authenticated and the user has the ADMIN role also the project state is given. 
+Only then DRAFT projects can be returned.
+
+   Example: 
+   
+       <state>PUBLISHED</state>
+       
+       it's either PUBLISHED or DRAFT
 
 
 ## object information

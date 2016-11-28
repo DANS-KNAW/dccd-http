@@ -583,6 +583,13 @@ public class ProjectResource extends AbstractProjectResource {
 			request.addSortField(new SimpleSortField(DccdProjectSB.PID_NAME, SortOrder.ASC));
 		}
 
+		DccdUser requestingUser=null;
+		try {
+			requestingUser = authenticate();
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
+		}
+
 		// Make sure it is published and not draft!
 		SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
 				DatasetState.PUBLISHED.toString());
@@ -590,7 +597,7 @@ public class ProjectResource extends AbstractProjectResource {
 
 		try {
 			searchResults = DccdSearchService.getService().doSearch(request);
-			return responseXmlOrJson(getProjectListSearchResultAsXml(searchResults, offset, limit));
+			return responseXmlOrJson(getProjectListSearchResultAsXml(searchResults, offset, limit, requestingUser));
 		} catch (SearchServiceException e) {
 			e.printStackTrace();
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
@@ -671,7 +678,14 @@ public class ProjectResource extends AbstractProjectResource {
 		request.addFilterBean(DccdProjectSB.class);
 		request.addSortField(new SimpleSortField(DccdProjectSB.PID_NAME, SortOrder.ASC));
 
-		if (!isRequestByAdmin()) {
+		DccdUser requestingUser=null;
+		try {
+			requestingUser = authenticate();
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
+		}
+
+		if (!isAdmin(requestingUser)) {
 			// Make sure it is published and not draft!
 			SimpleField<String> stateField = new SimpleField<String>(DccdProjectSB.ADMINISTRATIVE_STATE_NAME, 
 					DatasetState.PUBLISHED.toString());
@@ -688,7 +702,7 @@ public class ProjectResource extends AbstractProjectResource {
 				return Response.status(Status.NOT_FOUND).build();
 			} else {
 				DccdSB dccdSB = searchResults.getHits().get(0).getData();
-				return responseXmlOrJson(getProjectSearchResultAsXml(dccdSB));
+				return responseXmlOrJson(getProjectSearchResultAsXml(dccdSB, requestingUser));
 			}
 		} catch (SearchServiceException e) {
 			e.printStackTrace();
@@ -702,12 +716,12 @@ public class ProjectResource extends AbstractProjectResource {
 	 * @param dccdSB
 	 *            search result
 	 */
-	private String getProjectSearchResultAsXml(DccdSB dccdSB) {
+	private String getProjectSearchResultAsXml(DccdSB dccdSB, DccdUser requestingUser) {
 		java.io.StringWriter sw = new StringWriter();
 		
 		sw.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"); // XML instruction
 		sw.append("<project>");
-		appendSearchResultDataAsXml(sw, dccdSB);
+		appendSearchResultDataAsXml(sw, dccdSB, requestingUser);
 		sw.append("</project>");
 
 		return sw.toString();
@@ -721,7 +735,7 @@ public class ProjectResource extends AbstractProjectResource {
 	 * @param dccdSB
 	 *            search result
 	 */
-	protected void appendSearchResultDataAsXml(java.io.StringWriter sw, DccdSB dccdSB) {
+	protected void appendSearchResultDataAsXml(java.io.StringWriter sw, DccdSB dccdSB, DccdUser requestingUser) {
 		appendProjectPublicDataAsXml(sw, dccdSB);
 
 		appendProjectPublicLocationAsXml(sw, dccdSB);
@@ -732,26 +746,14 @@ public class ProjectResource extends AbstractProjectResource {
 		
 		appendProjectPublicDescriptionAsXml(sw, dccdSB);
 
-		// NOTE should the id, owner, state and permission be in here as well
-		// but only when logged in... 		?
-
 		// permission
 		appendProjectPermissionAsXml(sw, dccdSB);
-	}
-	
-	private boolean isRequestByAdmin() 
-	{
-		try {
-			DccdUser requestingUser = authenticate();
-			if (requestingUser != null && requestingUser.hasRole(Role.ADMIN) )
-				return true;
-			else
-				return false;
-		} catch (ServiceException eAuth) {
-			eAuth.printStackTrace();
-			return false; // we don't know so; false
+
+		if (isAdmin(requestingUser)) {
+			sw.append(XmlStringUtil.getXMLElementString("state", dccdSB.getAdministrativeState().toString()));
 		}
 	}
+	
 	
 	// TODO query and have the objects as result list, just like the GUI and a bit less than download search results
 	// therefore we could have Object title and then the project info, nothing more
